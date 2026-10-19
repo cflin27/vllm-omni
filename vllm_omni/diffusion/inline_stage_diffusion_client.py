@@ -26,7 +26,6 @@ from vllm_omni.diffusion.data import (
 from vllm_omni.diffusion.diffusion_engine import DiffusionEngine
 from vllm_omni.diffusion.request import OmniDiffusionRequest
 from vllm_omni.engine.stage_client import StageClientBase
-from vllm_omni.engine.stage_init_utils import StageMetadata
 from vllm_omni.errors import client_error_metadata
 from vllm_omni.inputs.data import OmniDiffusionSamplingParams, OmniInteractionPrompt
 from vllm_omni.metrics.utils import DIFFUSION_METRICS_ONLY_REQUEST_ID, diffusion_exception_metrics
@@ -34,6 +33,7 @@ from vllm_omni.outputs import OmniRequestOutput
 
 if TYPE_CHECKING:
     from vllm_omni.diffusion.data import OmniDiffusionConfig
+    from vllm_omni.engine.stage_init_utils import StageMetadata
     from vllm_omni.inputs.data import OmniPromptType
 
 logger = init_logger(__name__)
@@ -65,6 +65,9 @@ class InlineStageDiffusionClient(StageClientBase):
         self.prompt_transform_func = None
         self.prompt_expand_func = None
         self.engine_input_source = metadata.engine_input_source
+        self.fanout_targets = metadata.fanout_targets
+        self.input_payload_selector = metadata.input_payload_selector
+        self.result_aggregator = metadata.result_aggregator
 
         self._enrich_config()
         self._engine = DiffusionEngine.make_engine(self.od_config)
