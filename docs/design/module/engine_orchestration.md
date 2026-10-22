@@ -97,6 +97,25 @@ I/O, entrypoint, connector, and error contracts.
 
 ## Candidate invariants
 
+### Opt-in H3 decoder fan-out and join
+
+`minimax_h3_disaggregated_parallel_decode` explicitly declares DiT fan-out to
+video and audio terminal stages. Empty `fanout_targets` preserves the normal
+linear successor rule. The orchestrator validates every branch before
+dispatch, submits both branches concurrently, and keeps each terminal private
+until the `minimax_h3_av` join has both outputs in matching output order. It
+emits one combined video/audio response; either branch failing fails the
+whole request. This is a bounded H3 topology, not a general DAG scheduler.
+
+This opt-in topology admits one request across the entire pipeline. Decode
+timeout, cancellation or submission failure cancels and joins pending submits,
+aborts bound clients, and drains unfinished workers before releasing request
+bindings. A late result during cleanup cannot publish success. Failed idle
+acknowledgement blocks new requests until restart. Default serial pipelines
+retain their existing admission and routing behavior.
+
+Regression coverage: `tests/engine/test_orchestrator_parallel_decode.py`.
+
 These identifiers are proposals while the document is `draft`.
 
 ### ORCH-INV-001: The orchestrator owns cross-stage routing

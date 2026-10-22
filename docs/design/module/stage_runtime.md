@@ -72,6 +72,17 @@ and is not presented as current behavior.
 
 ## Ownership boundary
 
+The opt-in H3 modality stages carry `fanout_targets`,
+`input_payload_selector` and `result_aggregator` as routing metadata; clients
+do not choose successors. Both decoder stages run in subprocesses, with
+independent device groups. Deployment validates group sizes and explicit
+overlap after platform/CLI overrides. Existing deployments default to serial.
+
+For these stages, `drain_requests` is queued with ordinary diffusion RPCs. It
+waits for the named request tasks and synchronizes worker devices before
+acknowledging cancellation recovery. Queue ordering, streaming-control RPCs
+and ordinary serial requests keep their existing dispatch behavior.
+
 This document owns local and distributed stage placement, startup and
 readiness, one pool per logical stage, replica identity and membership,
 selection and affinity, stage-client/process lifecycle, liveness, draining,

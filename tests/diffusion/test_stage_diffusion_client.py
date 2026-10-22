@@ -140,3 +140,15 @@ def test_add_request_waits_for_a_live_subprocess_to_connect():
     finally:
         peer.close(linger=0)
         _close(client, thread)
+
+
+@pytest.mark.asyncio
+async def test_opt_in_send_remains_cancellable_without_a_peer():
+    client = _client_without_subprocess()
+    try:
+        with pytest.raises(TimeoutError):
+            await asyncio.wait_for(client._send_request_async(b"control"), 0.05)
+    finally:
+        client._request_socket.close(linger=0)
+        client._response_socket.close(linger=0)
+        client._zmq_ctx.term()
