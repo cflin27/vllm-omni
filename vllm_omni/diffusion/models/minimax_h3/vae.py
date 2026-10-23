@@ -342,8 +342,12 @@ class MiniMaxH3VideoVAE(nn.Module, DistributedVaeMixin):
         decode_only: bool = False,
         trust_remote_code: bool = False,
         decoder_source: str | Mapping[str, str] | None = None,
+        temporal_window_size: int = 1,
     ) -> None:
         super().__init__()
+        if type(temporal_window_size) is not int or temporal_window_size not in (1, 2):
+            raise ValueError("temporal_window_size must be 1 or 2")
+        self.temporal_window_size = temporal_window_size
         self._device_target = device
         self.encode_only = bool(encode_only)
         self.decode_only = bool(decode_only)
@@ -384,8 +388,14 @@ class MiniMaxH3VideoVAE(nn.Module, DistributedVaeMixin):
                 decoder,
                 device=device,
             )
-        install_temporal_stream_patches(self.remote.model, pixel_transform=self._pixel_transform)
         self.model = self.remote.model
+        window_decode = None
+        if temporal_window_size == 2:
+            from .vae_window import validate_temporal_window
+
+            validate_temporal_window(self.model)
+            window_decode = self._decode_temporal_window
+        install_temporal_stream_patches(self.model, pixel_transform=self._pixel_transform, window_decode=window_decode)
         self._stager = None
         self._encoder_stager = None
         self._decoder_stager = None
@@ -980,6 +990,18 @@ class MiniMaxH3VideoVAE(nn.Module, DistributedVaeMixin):
             patch_size=(1, 2, 2),
         ).float()
         return rows, shape
+
+    def _decode_temporal_window(self, clips: list[torch.Tensor]) -> list[torch.Tensor]:
+        from .vae_window import decode_temporal_window
+
+        state = self._native_parallel_state()
+        return decode_temporal_window(
+            self.model,
+            clips,
+            rank=state["sp_rank"],
+            world_size=state["sp_size"],
+            process_group=state["sp_process_group"],
+        )
 
     def _decode_tiling_context(self, latent: torch.Tensor) -> AbstractContextManager:
         """Pick the tiling mode a decode of ``latent`` can safely use.
