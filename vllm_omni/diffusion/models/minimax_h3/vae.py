@@ -390,12 +390,19 @@ class MiniMaxH3VideoVAE(nn.Module, DistributedVaeMixin):
             )
         self.model = self.remote.model
         window_decode = None
+        window_enabled = None
         if temporal_window_size == 2:
             from .vae_window import validate_temporal_window
 
             validate_temporal_window(self.model)
             window_decode = self._decode_temporal_window
-        install_temporal_stream_patches(self.model, pixel_transform=self._pixel_transform, window_decode=window_decode)
+            window_enabled = self._temporal_window_enabled
+        install_temporal_stream_patches(
+            self.model,
+            pixel_transform=self._pixel_transform,
+            window_decode=window_decode,
+            window_enabled=window_enabled,
+        )
         self._stager = None
         self._encoder_stager = None
         self._decoder_stager = None
@@ -990,6 +997,12 @@ class MiniMaxH3VideoVAE(nn.Module, DistributedVaeMixin):
             patch_size=(1, 2, 2),
         ).float()
         return rows, shape
+
+    def _temporal_window_enabled(self, z: torch.Tensor) -> bool:
+        from .vae_window import temporal_window_enabled
+
+        state = self._native_parallel_state()
+        return temporal_window_enabled(self.model, z, rank=state["sp_rank"], world_size=state["sp_size"])
 
     def _decode_temporal_window(self, clips: list[torch.Tensor]) -> list[torch.Tensor]:
         from .vae_window import decode_temporal_window

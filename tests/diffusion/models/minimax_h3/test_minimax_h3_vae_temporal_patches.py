@@ -268,6 +268,29 @@ def test_decode_fork_matches_legacy_chain_bitwise(token_drop, frame_overlap, tem
     assert torch.equal(out, expected)
 
 
+@pytest.mark.parametrize("enabled", [False, True])
+def test_installed_streaming_decode_uses_request_window_policy(enabled):
+    model = _DecodeModel()
+    setattr(model, "_decode_temporal_streaming", model.legacy_streaming)
+    decisions, windows = [], []
+
+    def policy(z):
+        decisions.append(tuple(z.shape))
+        return enabled
+
+    def window(clips):
+        windows.append(len(clips))
+        return [model._adaptive_decode(clip) for clip in clips]
+
+    install_temporal_stream_patches(model, window_decode=window, window_enabled=policy)
+    z = torch.arange(12).reshape(1, 3, 4, 1, 1).float() / 12
+    expected = _DecodeModel().legacy_streaming(z.clone(), None, None, 2, 0, None)
+    actual = getattr(model, "_decode_temporal_streaming")(z.clone(), None, None, 2, 0, None)
+    assert torch.equal(actual, expected)
+    assert decisions == [tuple(z.shape)]
+    assert windows == ([2] if enabled else [])
+
+
 def test_decode_fork_rejects_empty_plan():
     model = _DecodeModel()
     model.tokens_chunk_size = 0

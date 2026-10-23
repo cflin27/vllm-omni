@@ -8,7 +8,11 @@ import pytest
 import torch
 
 from vllm_omni.diffusion.models.minimax_h3.vae_temporal import _iter_decoded_clips, install_temporal_stream_patches
-from vllm_omni.diffusion.models.minimax_h3.vae_window import decode_temporal_window, validate_temporal_window
+from vllm_omni.diffusion.models.minimax_h3.vae_window import (
+    decode_temporal_window,
+    temporal_window_enabled,
+    validate_temporal_window,
+)
 
 pytestmark = [pytest.mark.core_model, pytest.mark.cpu, pytest.mark.diffusion]
 
@@ -143,6 +147,105 @@ def test_rejects_stateful_or_training_decoder(attribute):
 def test_invalid_group_metadata(rank, size):
     with pytest.raises(ValueError, match="Invalid VAE tile rank"):
         decode_temporal_window(_TileModel(False), [], rank=rank, world_size=size, process_group=None)
+
+
+@pytest.mark.parametrize("world_size", [1, 2, 3, 4, 6, 7, 8])
+@pytest.mark.parametrize("batch", [1, 2])
+def test_balanced_window_policy_follows_actual_group(world_size, batch):
+    model = _TileModel(False)
+    # Six equal spatial tiles. Only groups 2, 3 and 6 divide them evenly.
+    z = torch.empty(batch, 3, 9, 6, 8)
+    for rank in range(world_size):
+        enabled = temporal_window_enabled(model, z, rank=rank, world_size=world_size)
+        assert enabled == (world_size in (4, 7, 8))
+
+
+def test_window_policy_rechecks_shape_and_tiling_state():
+    model = _TileModel(False)
+    balanced = torch.empty(1, 3, 9, 6, 8)
+    # Edge tiles have different lengths; divisibility alone is insufficient.
+    edge = torch.empty(1, 3, 9, 7, 9)
+    assert not temporal_window_enabled(model, balanced, rank=0, world_size=3)
+    assert temporal_window_enabled(model, edge, rank=0, world_size=3)
+    model.stack_tiling = True
+    assert temporal_window_enabled(model, balanced, rank=0, world_size=3)
+    model.parallel_tiling = False
+    assert not temporal_window_enabled(model, edge, rank=0, world_size=3)
+    model.parallel_tiling = True
+    model.decoder_tiling = False
+    assert not temporal_window_enabled(model, edge, rank=0, world_size=3)
+
+
+@pytest.mark.parametrize("attribute", ["training", "decoder_parallel"])
+def test_window_policy_validates_before_native_fallback(attribute):
+    model = _TileModel(False)
+    model.parallel_tiling = False
+    setattr(model, attribute, True)
+    with pytest.raises(ValueError, match="require inference"):
+        temporal_window_enabled(model, torch.empty(1, 3, 3, 4, 4), rank=0, world_size=1)
+
+
+@pytest.mark.parametrize("rank,size", [(0, 0), (-1, 3), (3, 3)])
+def test_window_policy_rejects_invalid_group_metadata(rank, size):
+    with pytest.raises(ValueError, match="Invalid VAE tile rank"):
+        temporal_window_enabled(_TileModel(False), torch.empty(1, 3, 3, 4, 4), rank=rank, world_size=size)
+
+
+def test_window_policy_bypasses_before_second_clip_is_decoded():
+    class Decoder:
+        tokens_chunk_size = 2
+        token_overlap = 1
+
+        def __init__(self):
+            self.calls = []
+
+        def _adaptive_decode(self, z):
+            self.calls.append(z.clone())
+            return z.clone()
+
+    model = Decoder()
+    decisions = []
+    windows = []
+
+    def policy(z):
+        decisions.append(tuple(z.shape))
+        return z.shape[-1] > 1
+
+    def window(clips):
+        windows.append(len(clips))
+        return [model._adaptive_decode(clip) for clip in clips]
+
+    for width, expected_calls in [(1, 1), (2, 2), (1, 1)]:
+        model.calls.clear()
+        windows.clear()
+        z = torch.arange(7 * width).reshape(1, 1, 7, 1, width)
+        head, tail = z[:, :, :1], z[:, :, -1:]
+        iterator = _iter_decoded_clips(model, z, head, tail, 3, window, window_enabled=policy)
+        first = next(iterator)
+        # Native mode must yield before decoding/buffering a second clip.
+        assert len(model.calls) == expected_calls
+        actual = [first, *iterator]
+        reference = list(_iter_decoded_clips(Decoder(), z, head, tail, 3, None))
+        assert windows == ([2, 1] if width == 2 else [])
+        assert len(actual) == len(reference)
+        for (i, output), (j, expected) in zip(actual, reference):
+            assert i == j and torch.equal(output, expected)
+    assert [shape[-1] for shape in decisions] == [1, 2, 1]
+
+
+def test_default_iterator_does_not_evaluate_window_policy():
+    class Decoder:
+        tokens_chunk_size = 2
+        token_overlap = 1
+
+        def _adaptive_decode(self, z):
+            return z
+
+    def policy(z):
+        pytest.fail("Default per-clip decode must not evaluate the opt-in policy")
+
+    z = torch.ones(1, 1, 7, 1, 1)
+    assert len(list(_iter_decoded_clips(Decoder(), z, None, None, 3, None, window_enabled=policy))) == 3
 
 
 @pytest.mark.parametrize("num_chunks", [1, 2, 3, 7])

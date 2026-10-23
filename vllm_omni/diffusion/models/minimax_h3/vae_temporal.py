@@ -126,6 +126,7 @@ def _decode_temporal_streaming_uint8(
     *,
     pixel_transform: Callable[[torch.Tensor], torch.Tensor] | None = None,
     window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None = None,
+    window_enabled: Callable[[torch.Tensor], bool] | None = None,
 ):
     """Drop-in fork of the checkpoint's ``_decode_temporal_streaming``.
 
@@ -191,7 +192,9 @@ def _decode_temporal_streaming_uint8(
             write_pos += copy_frames
         dropped_frames += part_frames - copy_frames
 
-    for i, clip_dec in _iter_decoded_clips(self, z, z_head, z_tail, num_chunks, window_decode):
+    for i, clip_dec in _iter_decoded_clips(
+        self, z, z_head, z_tail, num_chunks, window_decode, window_enabled=window_enabled
+    ):
         decoded_count += 1
         if temporal_cat_dtype is not None and clip_dec.dtype != temporal_cat_dtype:
             clip_dec = clip_dec.to(temporal_cat_dtype)
@@ -259,8 +262,12 @@ def _iter_decoded_clips(
     z_tail: torch.Tensor | None,
     num_chunks: int,
     window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None,
+    *,
+    window_enabled: Callable[[torch.Tensor], bool] | None = None,
 ) -> Iterator[tuple[int, torch.Tensor]]:
     """Keep at most two clips in flight; yield in native temporal order."""
+    if window_decode is not None and window_enabled is not None and not window_enabled(z):
+        window_decode = None
     window_size = 1 if window_decode is None else 2
     for start in range(0, num_chunks, window_size):
         clips = []
@@ -292,6 +299,7 @@ def install_temporal_stream_patches(
     *,
     pixel_transform: Callable[[torch.Tensor], torch.Tensor] | None = None,
     window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None = None,
+    window_enabled: Callable[[torch.Tensor], bool] | None = None,
 ) -> None:
     """Install the memory-optimized temporal forks on the checkpoint model.
 
@@ -320,7 +328,10 @@ def install_temporal_stream_patches(
             stream_decode = _decode_temporal_streaming_uint8
         else:
             stream_decode = partial(
-                _decode_temporal_streaming_uint8, pixel_transform=pixel_transform, window_decode=window_decode
+                _decode_temporal_streaming_uint8,
+                pixel_transform=pixel_transform,
+                window_decode=window_decode,
+                window_enabled=window_enabled,
             )
         model._decode_temporal_streaming = MethodType(stream_decode, model)
         logger.info("MiniMax-H3 VAE streaming uint8 decode patch installed")

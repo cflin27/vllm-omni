@@ -65,6 +65,7 @@ def main() -> None:
                     vae.model,
                     pixel_transform=vae._pixel_transform,
                     window_decode=None if window == 1 else vae._decode_temporal_window,
+                    window_enabled=None if window == 1 else vae._temporal_window_enabled,
                 )
                 device_module.empty_cache()
                 device_module.reset_peak_memory_stats()

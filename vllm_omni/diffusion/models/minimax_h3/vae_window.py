@@ -42,6 +42,31 @@ def validate_temporal_window(model: object) -> None:
         raise ValueError(f"VAE temporal windows require checkpoint tile methods: {missing}")
 
 
+def _validate_decode_state(model: TiledVideoDecoder, rank: int, world_size: int) -> None:
+    if model.training or getattr(model, "decoder_parallel", False):
+        raise ValueError("VAE temporal windows require inference with decoder_parallel disabled")
+    if world_size < 1 or not 0 <= rank < world_size:
+        raise ValueError(f"Invalid VAE tile rank {rank} for group size {world_size}")
+
+
+def temporal_window_enabled(model: TiledVideoDecoder, z: torch.Tensor, *, rank: int, world_size: int) -> bool:
+    """Select per request, before buffering clips, using replicated metadata.
+
+    Uniform unstacked tiles evenly divided across ranks have no critical-path
+    work reduction from a window. Keep native streaming and its memory bound.
+    Stacked tiles can change forward batch sizes, so retain the window there.
+    """
+    _validate_decode_state(model, rank, world_size)
+    if not model.decoder_tiling or not model.parallel_tiling or world_size == 1:
+        return False
+    if model.stack_tiling:
+        return True
+    _, heights, _ = model.split_tiles(z.shape[-2] * model.vae_ratio, True)
+    _, widths, _ = model.split_tiles(z.shape[-1] * model.vae_ratio, True)
+    balanced = len(set(heights)) == len(set(widths)) == 1 and len(heights) * len(widths) % world_size == 0
+    return not balanced
+
+
 def decode_temporal_window(
     model: TiledVideoDecoder,
     clips: list[torch.Tensor],
@@ -57,10 +82,7 @@ def decode_temporal_window(
     checkpoint gather rejects empty local task lists. The choice depends only
     on replicated input metadata, so all ranks follow the same collectives.
     """
-    if model.training or getattr(model, "decoder_parallel", False):
-        raise ValueError("VAE temporal windows require inference with decoder_parallel disabled")
-    if world_size < 1 or not 0 <= rank < world_size:
-        raise ValueError(f"Invalid VAE tile rank {rank} for group size {world_size}")
+    _validate_decode_state(model, rank, world_size)
     if not model.decoder_tiling or not model.parallel_tiling or world_size == 1:
         return [model._adaptive_decode(clip) for clip in clips]
 

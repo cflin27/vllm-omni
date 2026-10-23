@@ -166,6 +166,14 @@ This can reduce idle time and gather frequency, at the cost of keeping
 up to two decoded clips in memory. It does not change tile geometry or
 guarantee a speedup, especially for already balanced layouts.
 
+For unstacked tiling, uniform spatial tiles whose count is divisible by the
+actual tile group size use native per-clip streaming even when the opt-in is
+set to `2`. This avoids buffering a second decoded clip when the window cannot
+reduce the busiest rank's tile count. The decision uses each request's shape
+and current tiling mode, so it also follows the small-canvas rank-local guard.
+Stacked tiling keeps window scheduling because changing batch sizes can change
+its compute cost. Neither path changes the output order or tile geometry.
+
 Short tails and different-shaped edge tiles are scheduled separately.
 Buckets with fewer tasks than ranks decode locally on every rank to avoid
 empty-task gathers. The existing small-canvas rank-local guard remains in
