@@ -259,9 +259,17 @@ def test_decode_fork_matches_legacy_chain_bitwise(token_drop, frame_overlap, tem
     expected = legacy.legacy_streaming(z.clone(), None, None, 2, 0, temporal_cat_dtype)
 
     fork = _DecodeModel(token_drop=token_drop, frame_overlap=frame_overlap)
-    window_decode = (lambda clips: [fork._adaptive_decode(clip) for clip in clips]) if window else None
+    window_decode = (lambda clips, **kwargs: [fork._adaptive_decode(clip) for clip in clips]) if window else None
     out = _decode_temporal_streaming_uint8(
-        fork, z.clone(), None, None, 2, 0, temporal_cat_dtype, window_decode=window_decode
+        fork,
+        z.clone(),
+        None,
+        None,
+        2,
+        0,
+        temporal_cat_dtype,
+        window_decode=window_decode,
+        window_plan=lambda *args: 2,
     )
     assert out.dtype == torch.uint8
     assert out.shape == expected.shape
@@ -274,21 +282,21 @@ def test_installed_streaming_decode_uses_request_window_policy(enabled):
     setattr(model, "_decode_temporal_streaming", model.legacy_streaming)
     decisions, windows = [], []
 
-    def policy(z):
+    def policy(model, z, head, tail, count):
         decisions.append(tuple(z.shape))
-        return enabled
+        return 2 if enabled else 1
 
-    def window(clips):
+    def window(clips, **kwargs):
         windows.append(len(clips))
         return [model._adaptive_decode(clip) for clip in clips]
 
-    install_temporal_stream_patches(model, window_decode=window, window_enabled=policy)
+    install_temporal_stream_patches(model, window_decode=window, window_plan=policy)
     z = torch.arange(12).reshape(1, 3, 4, 1, 1).float() / 12
     expected = _DecodeModel().legacy_streaming(z.clone(), None, None, 2, 0, None)
     actual = getattr(model, "_decode_temporal_streaming")(z.clone(), None, None, 2, 0, None)
     assert torch.equal(actual, expected)
     assert decisions == [tuple(z.shape)]
-    assert windows == ([2] if enabled else [])
+    assert windows == ([2] if enabled else [1, 1])
 
 
 def test_decode_fork_rejects_empty_plan():

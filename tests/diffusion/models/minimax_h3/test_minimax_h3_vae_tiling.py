@@ -214,24 +214,14 @@ def test_decode_latent_leaves_the_group_state_alone_when_the_grid_is_large_enoug
     assert seen["parallel_tiling"] is True
 
 
-def test_window_policy_observes_request_local_tiling_and_restores_state():
-    vae, state, _ = _dispatch_vae(4)
-    vae.model.training = False
-    vae.model.decoder_parallel = False
-    vae.model.decoder_tiling = True
-    vae.model.stack_tiling = False
+@pytest.mark.parametrize("enabled", [False, True])
+def test_opt_in_preserves_real_group_for_request_local_planning(enabled):
+    vae, state, seen = _dispatch_vae(4)
+    vae.enable_temporal_scheduling = enabled
+    vae._temporal_scheduling_available = True
     original_state = dict(state)
-    decisions = []
-
-    def decode_base(sample):
-        decisions.append((vae._temporal_window_enabled(sample), state["sp_size"]))
-        return torch.zeros(1, 3, 2, 4, 4)
-
-    vae.model.decode_base = decode_base
-    # One tile uses rank-local mode; 28 tiles balance across four ranks;
-    # six tiles retain the window. Reuse one adapter across shape changes.
     for h, w in [(16, 16), (48, 84), (24, 32), (16, 16)]:
         vae.decode_latent(_latent(h, w))
+        assert seen["sp_size"] == (1 if not enabled and h == w == 16 else 4)
         assert state == original_state
         assert vae.model.parallel_tiling is True
-    assert decisions == [(False, 1), (False, 4), (True, 4), (False, 1)]

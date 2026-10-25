@@ -37,8 +37,8 @@ def main() -> None:
         parser.error("Use positive latent dimensions, at least one warmup and two repetitions")
 
     platform = current_omni_platform
-    if platform.device_type == "cpu":
-        parser.error("This benchmark requires an accelerator runtime")
+    if platform.device_type != "npu":
+        parser.error("This benchmark requires an Ascend NPU runtime")
     local_rank = int(os.environ["LOCAL_RANK"])
     device = torch.device(f"{platform.device_type}:{local_rank}")
     platform.set_device(device)
@@ -47,7 +47,7 @@ def main() -> None:
     try:
         rank, world_size = dist.get_rank(), dist.get_world_size()
         vae = MiniMaxH3VideoVAE(
-            args.model, device=device, decode_only=True, trust_remote_code=True, temporal_window_size=2
+            args.model, device=device, decode_only=True, trust_remote_code=True, enable_temporal_scheduling=True
         )
         vae.set_parallel_size(world_size, process_group=dist.group.WORLD)
         latent = torch.randn(args.latent_shape, generator=torch.Generator(device="cpu").manual_seed(1101))
@@ -65,8 +65,9 @@ def main() -> None:
                     vae.model,
                     pixel_transform=vae._pixel_transform,
                     window_decode=None if window == 1 else vae._decode_temporal_window,
-                    window_enabled=None if window == 1 else vae._temporal_window_enabled,
+                    window_plan=None if window == 1 else vae._plan_temporal_schedule,
                 )
+                vae.enable_temporal_scheduling = window != 1
                 device_module.empty_cache()
                 device_module.reset_peak_memory_stats()
                 platform.synchronize()
@@ -86,7 +87,7 @@ def main() -> None:
                 if repetition >= 0:
                     records.append(
                         {
-                            "window": window,
+                            "enabled": window != 1,
                             "repetition": repetition,
                             "seconds": seconds,
                             "peak_bytes": peak_bytes,
@@ -97,9 +98,9 @@ def main() -> None:
                 del output, cpu
         summary = {}
         for window in (1, 2):
-            selected = [row for row in records if row["window"] == window]
+            selected = [row for row in records if row["enabled"] == (window != 1)]
             times = [row["seconds"] for row in selected]
-            summary[str(window)] = {
+            summary["on" if window != 1 else "off"] = {
                 "mean_seconds": statistics.mean(times),
                 "min_seconds": min(times),
                 "max_seconds": max(times),

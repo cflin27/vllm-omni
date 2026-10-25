@@ -10,8 +10,7 @@ import torch
 from vllm_omni.diffusion.models.minimax_h3.vae_temporal import _iter_decoded_clips, install_temporal_stream_patches
 from vllm_omni.diffusion.models.minimax_h3.vae_window import (
     decode_temporal_window,
-    temporal_window_enabled,
-    validate_temporal_window,
+    temporal_scheduling_unavailable_reason,
 )
 
 pytestmark = [pytest.mark.core_model, pytest.mark.cpu, pytest.mark.diffusion]
@@ -23,6 +22,10 @@ class _TileModel:
     decoder_tiling = True
     parallel_tiling = True
     vae_ratio = 1
+    vae_ratio_t = 1
+    tokens_chunk_size = 2
+    token_overlap = 1
+    use_vit_decoder = False
 
     def __init__(self, stack_tiling):
         self.stack_tiling = stack_tiling
@@ -110,10 +113,7 @@ def test_tiles_restore_native_order_for_all_ranks(monkeypatch, world_size, stack
         assert len(outputs) == len(reference)
         for output, expected in zip(outputs, reference):
             assert torch.equal(output, expected)
-        for count, indices in model.calls:
-            expected = list(range(rank, count, world_size)) if count >= world_size else list(range(count))
-            assert indices == expected
-        assert model.gathers == sum(count >= world_size for count, _ in model.calls)
+        assert all(indices for _, indices in model.calls)
     assert all(b == {"group": group} for b in barriers)
 
 
@@ -149,48 +149,6 @@ def test_invalid_group_metadata(rank, size):
         decode_temporal_window(_TileModel(False), [], rank=rank, world_size=size, process_group=None)
 
 
-@pytest.mark.parametrize("world_size", [1, 2, 3, 4, 6, 7, 8])
-@pytest.mark.parametrize("batch", [1, 2])
-def test_balanced_window_policy_follows_actual_group(world_size, batch):
-    model = _TileModel(False)
-    # Six equal spatial tiles. Only groups 2, 3 and 6 divide them evenly.
-    z = torch.empty(batch, 3, 9, 6, 8)
-    for rank in range(world_size):
-        enabled = temporal_window_enabled(model, z, rank=rank, world_size=world_size)
-        assert enabled == (world_size in (4, 7, 8))
-
-
-def test_window_policy_rechecks_shape_and_tiling_state():
-    model = _TileModel(False)
-    balanced = torch.empty(1, 3, 9, 6, 8)
-    # Edge tiles have different lengths; divisibility alone is insufficient.
-    edge = torch.empty(1, 3, 9, 7, 9)
-    assert not temporal_window_enabled(model, balanced, rank=0, world_size=3)
-    assert temporal_window_enabled(model, edge, rank=0, world_size=3)
-    model.stack_tiling = True
-    assert temporal_window_enabled(model, balanced, rank=0, world_size=3)
-    model.parallel_tiling = False
-    assert not temporal_window_enabled(model, edge, rank=0, world_size=3)
-    model.parallel_tiling = True
-    model.decoder_tiling = False
-    assert not temporal_window_enabled(model, edge, rank=0, world_size=3)
-
-
-@pytest.mark.parametrize("attribute", ["training", "decoder_parallel"])
-def test_window_policy_validates_before_native_fallback(attribute):
-    model = _TileModel(False)
-    model.parallel_tiling = False
-    setattr(model, attribute, True)
-    with pytest.raises(ValueError, match="require inference"):
-        temporal_window_enabled(model, torch.empty(1, 3, 3, 4, 4), rank=0, world_size=1)
-
-
-@pytest.mark.parametrize("rank,size", [(0, 0), (-1, 3), (3, 3)])
-def test_window_policy_rejects_invalid_group_metadata(rank, size):
-    with pytest.raises(ValueError, match="Invalid VAE tile rank"):
-        temporal_window_enabled(_TileModel(False), torch.empty(1, 3, 3, 4, 4), rank=rank, world_size=size)
-
-
 def test_window_policy_bypasses_before_second_clip_is_decoded():
     class Decoder:
         tokens_chunk_size = 2
@@ -207,11 +165,11 @@ def test_window_policy_bypasses_before_second_clip_is_decoded():
     decisions = []
     windows = []
 
-    def policy(z):
+    def policy(model, z, head, tail, count):
         decisions.append(tuple(z.shape))
-        return z.shape[-1] > 1
+        return 2 if z.shape[-1] > 1 else 1
 
-    def window(clips):
+    def window(clips, **kwargs):
         windows.append(len(clips))
         return [model._adaptive_decode(clip) for clip in clips]
 
@@ -220,13 +178,13 @@ def test_window_policy_bypasses_before_second_clip_is_decoded():
         windows.clear()
         z = torch.arange(7 * width).reshape(1, 1, 7, 1, width)
         head, tail = z[:, :, :1], z[:, :, -1:]
-        iterator = _iter_decoded_clips(model, z, head, tail, 3, window, window_enabled=policy)
+        iterator = _iter_decoded_clips(model, z, head, tail, 3, window, window_plan=policy)
         first = next(iterator)
         # Native mode must yield before decoding/buffering a second clip.
         assert len(model.calls) == expected_calls
         actual = [first, *iterator]
         reference = list(_iter_decoded_clips(Decoder(), z, head, tail, 3, None))
-        assert windows == ([2, 1] if width == 2 else [])
+        assert windows == ([2, 1] if width == 2 else [1, 1, 1])
         assert len(actual) == len(reference)
         for (i, output), (j, expected) in zip(actual, reference):
             assert i == j and torch.equal(output, expected)
@@ -241,11 +199,11 @@ def test_default_iterator_does_not_evaluate_window_policy():
         def _adaptive_decode(self, z):
             return z
 
-    def policy(z):
+    def policy(*args):
         pytest.fail("Default per-clip decode must not evaluate the opt-in policy")
 
     z = torch.ones(1, 1, 7, 1, 1)
-    assert len(list(_iter_decoded_clips(Decoder(), z, None, None, 3, None, window_enabled=policy))) == 3
+    assert len(list(_iter_decoded_clips(Decoder(), z, None, None, 3, None, window_plan=policy))) == 3
 
 
 @pytest.mark.parametrize("num_chunks", [1, 2, 3, 7])
@@ -265,11 +223,11 @@ def test_window_iterator_preserves_head_tail_and_odd_clip(num_chunks, head_tail)
     reference = list(_iter_decoded_clips(model, z, head, tail, num_chunks, None))
     windows = []
 
-    def decode(clips):
+    def decode(clips, **kwargs):
         windows.append(len(clips))
         return [clip.clone() for clip in clips]
 
-    actual = list(_iter_decoded_clips(model, z, head, tail, num_chunks, decode))
+    actual = list(_iter_decoded_clips(model, z, head, tail, num_chunks, decode, window_plan=lambda *args: 2))
     assert windows == [2] * (num_chunks // 2) + ([1] if num_chunks % 2 else [])
     for (i, output), (j, expected) in zip(actual, reference):
         assert i == j
@@ -277,11 +235,11 @@ def test_window_iterator_preserves_head_tail_and_odd_clip(num_chunks, head_tail)
 
 
 def test_explicit_opt_in_rejects_missing_checkpoint_contract(monkeypatch):
-    with pytest.raises(ValueError, match="tile methods"):
-        validate_temporal_window(object())
+    assert "unsupported_checkpoint" in temporal_scheduling_unavailable_reason(object())
     monkeypatch.setenv("VLLM_OMNI_VAE_LEGACY_TEMPORAL", "1")
     with pytest.raises(ValueError, match="legacy temporal"):
         install_temporal_stream_patches(object(), window_decode=lambda clips: clips)
+
     monkeypatch.delenv("VLLM_OMNI_VAE_LEGACY_TEMPORAL")
     monkeypatch.setenv("MINIMAX_H3_VAE_DECODER_STREAM_TEMPORAL_CAT", "0")
     with pytest.raises(ValueError, match="streaming temporal concatenation"):
@@ -291,12 +249,25 @@ def test_explicit_opt_in_rejects_missing_checkpoint_contract(monkeypatch):
         install_temporal_stream_patches(object(), window_decode=lambda clips: clips)
 
 
-@pytest.mark.parametrize("value", [0, -1, 3, True, 1.0, "2", None])
+@pytest.mark.parametrize("mean", [None, 1, [0, 0]])
+def test_unsupported_checkpoint_normalization_falls_back(monkeypatch, mean):
+    from types import SimpleNamespace
+
+    model = _TileModel(False)
+    model.use_vit_decoder = True
+    monkeypatch.setattr(model, "_decode_temporal_streaming", lambda *args: None, raising=False)
+    monkeypatch.setattr(
+        model, "processor", SimpleNamespace(transform_rev=SimpleNamespace(mean=mean, std=[1, 1, 1])), raising=False
+    )
+    assert temporal_scheduling_unavailable_reason(model) == "unsupported_checkpoint_stream_contract"
+
+
+@pytest.mark.parametrize("value", [0, -1, 3, 1.0, "true", None])
 def test_window_config_rejects_invalid_values(value):
     from vllm_omni.diffusion.data import OmniDiffusionConfig
 
-    with pytest.raises(ValueError, match="vae_temporal_window_size"):
-        OmniDiffusionConfig(vae_temporal_window_size=value)
+    with pytest.raises(ValueError, match="enable_vae_temporal_scheduling"):
+        OmniDiffusionConfig(enable_vae_temporal_scheduling=value)
 
 
 def test_window_config_survives_stage_and_diffusion_kwargs():
@@ -305,32 +276,126 @@ def test_window_config_survives_stage_and_diffusion_kwargs():
     from vllm_omni.diffusion.data import OmniDiffusionConfig
     from vllm_omni.engine.arg_utils import OrchestratorArgs
 
-    args = OrchestratorArgs(vae_temporal_window_size=2)
-    stage = StageDeployConfig(stage_id=0, vae_temporal_window_size=args.vae_temporal_window_size)
+    args = OrchestratorArgs(enable_vae_temporal_scheduling=True)
+    stage = StageDeployConfig(stage_id=0, enable_vae_temporal_scheduling=args.enable_vae_temporal_scheduling)
     kwargs = extract_diffusion_stage_config_kwargs(
-        {"vae_temporal_window_size": stage.vae_temporal_window_size}, stage_id=0
+        {"enable_vae_temporal_scheduling": stage.enable_vae_temporal_scheduling}, stage_id=0
     )
     projection = _DiffusionConfigProjection.from_kwargs(**kwargs)
-    assert projection.vae_temporal_window_size == 2
+    assert projection.enable_vae_temporal_scheduling is True
     config = OmniDiffusionConfig.from_kwargs(**kwargs)
-    assert config.vae_temporal_window_size == 2
-    assert OmniDiffusionConfig().vae_temporal_window_size == 1
+    assert config.enable_vae_temporal_scheduling is True
+    assert OmniDiffusionConfig().enable_vae_temporal_scheduling is False
 
 
 def test_window_config_reaches_default_diffusion_stage():
     from vllm_omni.config.config_factory import StageConfigFactory
     from vllm_omni.config.stage_config import build_stage_runtime_overrides
 
-    overrides = build_stage_runtime_overrides(0, {"vae_temporal_window_size": 2})
+    overrides = build_stage_runtime_overrides(0, {"enable_vae_temporal_scheduling": True})
     stages = StageConfigFactory.create_default_diffusion(
         {"model": "unused", "model_class_name": "UnknownPipeline", **overrides}
     )
-    assert stages[0]["engine_args"]["vae_temporal_window_size"] == 2
+    assert stages[0]["engine_args"]["enable_vae_temporal_scheduling"] is True
 
 
-@pytest.mark.parametrize("value", [0, 3, True, 1.0, "2"])
+@pytest.mark.parametrize("value", [0, 3, 1.0, "true"])
 def test_structured_window_config_rejects_invalid_values(value):
     from vllm_omni.config.omni_config import _DiffusionConfigProjection
 
     with pytest.raises(ValueError):
-        _DiffusionConfigProjection(vae_temporal_window_size=value)
+        _DiffusionConfigProjection(enable_vae_temporal_scheduling=value)
+
+
+def test_public_cli_default_opt_in_and_removed_numeric_option():
+    import argparse
+
+    from vllm_omni.entrypoints.cli.serve import OmniServeCommand
+
+    parser = argparse.ArgumentParser()
+    OmniServeCommand().subparser_init(parser.add_subparsers())
+    assert parser.parse_args(["serve", "unused"]).enable_vae_temporal_scheduling is False
+    assert (
+        parser.parse_args(["serve", "unused", "--enable-vae-temporal-scheduling"]).enable_vae_temporal_scheduling
+        is True
+    )
+    with pytest.raises(SystemExit):
+        parser.parse_args(["serve", "unused", "--vae-temporal-window-size", "2"])
+
+
+@pytest.mark.parametrize("budget", [0, 2**40])
+def test_planner_uses_group_minimum_budget_and_real_tile_shapes(monkeypatch, budget):
+    from types import SimpleNamespace
+
+    from vllm_omni.diffusion.models.minimax_h3.vae_window import select_temporal_window
+
+    model = _TileModel(False)
+    model.tokens_chunk_size, model.token_overlap, model.vae_ratio_t = 2, 1, 1
+    model.use_vit_decoder = True
+    monkeypatch.setattr(
+        torch,
+        "get_device_module",
+        lambda device: SimpleNamespace(mem_get_info=lambda d: (2**40, 2**41)),
+    )
+    calls = []
+    group = object()
+    monkeypatch.setattr("vllm_omni.diffusion.models.minimax_h3.vae_window.dist.get_backend", lambda g: "gloo")
+
+    def minimum(value, **kwargs):
+        assert kwargs["group"] is group
+        if value.dtype == torch.int64:
+            calls.append(int(value.item()))
+            value.fill_(min(budget, int(value.item())))
+
+    monkeypatch.setattr("vllm_omni.diffusion.models.minimax_h3.vae_window.dist.all_reduce", minimum)
+
+    monkeypatch.setattr(model, "decode", lambda *a: pytest.fail("planning must never decode a trial tile"))
+    monkeypatch.setattr(model, "_adaptive_decode", lambda *a: pytest.fail("planning must never decode a prefix"))
+    windows = [
+        select_temporal_window(
+            model, torch.zeros(2, 3, 17, 6, 8), None, None, 8, rank=rank, world_size=8, process_group=group
+        )
+        for rank in range(8)
+    ]
+    assert len(set(windows)) == 1
+    assert len(calls) == 8
+    assert (windows[0] > 1) is (budget > 0)
+
+
+@pytest.mark.parametrize(
+    "attribute,value", [("stack_tiling", True), ("parallel_tiling", False), ("use_vit_decoder", False)]
+)
+def test_unsupported_request_never_queries_memory_or_collectives(monkeypatch, attribute, value):
+    from vllm_omni.diffusion.models.minimax_h3.vae_window import select_temporal_window
+
+    model = _TileModel(False)
+    model.use_vit_decoder = True
+    setattr(model, attribute, value)
+    monkeypatch.setattr(torch, "get_device_module", lambda *args: pytest.fail("fallback must not query device memory"))
+    assert (
+        select_temporal_window(
+            model, torch.zeros(1, 3, 17, 6, 8), None, None, 8, rank=0, world_size=8, process_group=None
+        )
+        == 1
+    )
+
+
+@pytest.mark.parametrize("window", [1, 2, 4])
+def test_all_clips_decode_once_without_calibration_prefix(window):
+    model = _TileModel(False)
+    z = torch.arange(15).reshape(1, 1, 15, 1, 1).float()
+    head, tail = -z[:, :, :1] - 1, -z[:, :, :1] - 2
+    reference = list(_iter_decoded_clips(model, z, head, tail, 7, None))
+    calls: list[torch.Tensor] = []
+
+    def plan(*args):
+        assert not calls
+        return window
+
+    def decode(clips, **kwargs):
+        calls.extend(clips)
+        return [model._adaptive_decode(clip) for clip in clips]
+
+    actual = list(_iter_decoded_clips(model, z, head, tail, 7, decode, window_plan=plan))
+    assert len(calls) == 7
+    assert all(i == j and torch.equal(a, b) for (i, a), (j, b) in zip(reference, actual))

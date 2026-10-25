@@ -125,8 +125,8 @@ def _decode_temporal_streaming_uint8(
     temporal_cat_dtype,
     *,
     pixel_transform: Callable[[torch.Tensor], torch.Tensor] | None = None,
-    window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None = None,
-    window_enabled: Callable[[torch.Tensor], bool] | None = None,
+    window_decode: Callable[..., list[torch.Tensor]] | None = None,
+    window_plan: Callable[..., int] | None = None,
 ):
     """Drop-in fork of the checkpoint's ``_decode_temporal_streaming``.
 
@@ -192,9 +192,7 @@ def _decode_temporal_streaming_uint8(
             write_pos += copy_frames
         dropped_frames += part_frames - copy_frames
 
-    for i, clip_dec in _iter_decoded_clips(
-        self, z, z_head, z_tail, num_chunks, window_decode, window_enabled=window_enabled
-    ):
+    for i, clip_dec in _iter_decoded_clips(self, z, z_head, z_tail, num_chunks, window_decode, window_plan=window_plan):
         decoded_count += 1
         if temporal_cat_dtype is not None and clip_dec.dtype != temporal_cat_dtype:
             clip_dec = clip_dec.to(temporal_cat_dtype)
@@ -261,16 +259,19 @@ def _iter_decoded_clips(
     z_head: torch.Tensor | None,
     z_tail: torch.Tensor | None,
     num_chunks: int,
-    window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None,
+    window_decode: Callable[..., list[torch.Tensor]] | None,
     *,
-    window_enabled: Callable[[torch.Tensor], bool] | None = None,
+    window_plan: Callable[..., int] | None = None,
 ) -> Iterator[tuple[int, torch.Tensor]]:
-    """Keep at most two clips in flight; yield in native temporal order."""
-    if window_decode is not None and window_enabled is not None and not window_enabled(z):
-        window_decode = None
-    window_size = 1 if window_decode is None else 2
+    """Buffer only the selected bounded window; retain native temporal order."""
+    if window_decode is not None and window_plan is None:
+        raise ValueError("VAE scheduling requires a request-local planner")
+    window_size = 1 if window_decode is None else window_plan(model, z, z_head, z_tail, num_chunks)
+    if type(window_size) is not int or not 1 <= window_size <= 16:
+        raise ValueError("VAE planner returned an invalid temporal window")
     for start in range(0, num_chunks, window_size):
         clips = []
+        contexts = [] if window_decode is not None else None
         for i in range(start, min(start + window_size, num_chunks)):
             offset = i * model.tokens_chunk_size
             clip = z[:, :, offset : offset + model.tokens_chunk_size + model.token_overlap]
@@ -279,7 +280,18 @@ def _iter_decoded_clips(
             if i == num_chunks - 1 and z_tail is not None:
                 clip = torch.cat([clip, z_tail], dim=2)
             clips.append(clip)
-        decoded = [model._adaptive_decode(clips[0])] if window_decode is None else window_decode(clips)
+            if contexts is not None:
+                contexts.append(
+                    (
+                        offset,
+                        min(offset + model.tokens_chunk_size + model.token_overlap, z.shape[2]),
+                        z_head.shape[2] if i == 0 and z_head is not None else 0,
+                        z_tail.shape[2] if i == num_chunks - 1 and z_tail is not None else 0,
+                    )
+                )
+        decoded = (
+            [model._adaptive_decode(clips[0])] if window_decode is None else window_decode(clips, contexts=contexts)
+        )
         if len(decoded) != len(clips):
             raise RuntimeError("VAE temporal window returned the wrong number of clips")
         del clips, clip
@@ -298,8 +310,8 @@ def install_temporal_stream_patches(
     model,
     *,
     pixel_transform: Callable[[torch.Tensor], torch.Tensor] | None = None,
-    window_decode: Callable[[list[torch.Tensor]], list[torch.Tensor]] | None = None,
-    window_enabled: Callable[[torch.Tensor], bool] | None = None,
+    window_decode: Callable[..., list[torch.Tensor]] | None = None,
+    window_plan: Callable[..., int] | None = None,
 ) -> None:
     """Install the memory-optimized temporal forks on the checkpoint model.
 
@@ -331,7 +343,7 @@ def install_temporal_stream_patches(
                 _decode_temporal_streaming_uint8,
                 pixel_transform=pixel_transform,
                 window_decode=window_decode,
-                window_enabled=window_enabled,
+                window_plan=window_plan,
             )
         model._decode_temporal_streaming = MethodType(stream_decode, model)
         logger.info("MiniMax-H3 VAE streaming uint8 decode patch installed")

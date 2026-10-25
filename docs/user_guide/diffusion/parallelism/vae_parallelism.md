@@ -7,7 +7,7 @@
 - [Example Script](#example-script)
 - [Configuration Parameters](#configuration-parameters)
 - [Batch Parallel Decode](#batch-parallel-decode)
-- [Temporal Tile Windows (MiniMax-H3)](#temporal-tile-windows-minimax-h3)
+- [Adaptive Temporal Scheduling (MiniMax-H3, NPU)](#adaptive-temporal-scheduling-minimax-h3-npu)
 - [Spatially-Sharded Decode (Wan)](#spatially-sharded-decode-wan)
 - [Distributed Encode Split (Wan)](#distributed-encode-split-wan)
 - [Best Practices](#best-practices)
@@ -128,77 +128,94 @@ Additional requirements:
 
 ---
 
-## Temporal Tile Windows (MiniMax-H3)
+## Adaptive Temporal Scheduling (MiniMax-H3, NPU)
 
-MiniMax-H3 can distribute spatial tiles from two adjacent temporal clips in
-one scheduling window. Enable this for full video decode with
-`--vae-temporal-window-size 2`, or `vae_temporal_window_size=2` in Python or
-the diffusion stage's `engine_args`. The default is `1`, which preserves
-per-clip scheduling. Supported values are `1` and `2`.
-
-This opt-in currently targets Ascend NPU deployments. Native checkpoint
-correctness and latency have been validated on NPUs; CUDA validation and
-support are outside the scope of this feature.
-
-Use the model's existing tile parallel deployment, including
-`--vae-parallel-mode tile` and `--vae-patch-parallel-size`. The window uses
-the actual VAE tile process group; it does not allocate workers or require
-eight ranks. MiniMax-H3 still requires a VAE degree of one or the full DiT
-group size. Other parallelism constraints of the deployment still apply.
-
-For example, add the opt-in to an otherwise valid four-rank deployment:
+Enable with `--enable-vae-temporal-scheduling`, or
+`enable_vae_temporal_scheduling=True` in Python / diffusion stage engine arguments.
+The default is **off**: native per-clip decoding runs without the planner,
+extra device memory queries, or planning collectives. Omit the flag to roll back.
+The previous candidate-only `--vae-temporal-window-size` option is removed;
+it was not present in the checked published releases through v0.32.0rc1.
+Window size is now an internal, per-request decision.
 
 ```bash
 vllm serve "$MODEL" --omni --trust-remote-code --task-type fl2va \
   --num-gpus 4 --usp 4 --ring 1 --text-encoder-tp-size 4 \
   --vae-parallel-mode tile --vae-use-tiling --vae-patch-parallel-size 4 \
-  --vae-temporal-window-size 2
+  --enable-vae-temporal-scheduling
 ```
 
-Keep any precision, attention, and offload options required by your platform.
-Omit `--vae-temporal-window-size` or set it to `1` to restore the default.
+Keep the deployment's precision, attention, and offload options unchanged.
+The scheduler uses the actual video tile process group, including non-power-of-two
+sizes. It does not create workers or relax existing model parallelism constraints.
+Only NPU full-video streaming uint8 decode is optimized. Other backends keep the
+native path and log `unsupported_backend` when explicitly enabled. Incremental
+output, audio decode, Encoder/DiT, and offload are unchanged.
 
-Tiles keep their original temporal context, spatial overlap, and blend
-order. Only equal-shaped tiles are grouped. For example, twelve spatial
-tiles on eight ranks give some ranks two tasks and others one per clip;
-two equal-shaped clips supply twenty-four tasks, or three per rank.
-This can reduce idle time and gather frequency, at the cost of keeping
-up to two decoded clips in memory. It does not change tile geometry or
-guarantee a speedup, especially for already balanced layouts.
+The planner describes every native tile with its original batch N, temporal
+context, shape and output position. The verified ViT decoder receives the same
+independent context-complete inputs; temporal overlap blending and spatial
+stitching retain native order. Equal-shaped tasks are statically assigned using
+a deterministic least-loaded policy. All ranks reproduce the same collective
+sequence. A shape bucket smaller than the group runs replicated, avoiding empty
+rank gathers. Output-only padding never executes dummy decoder tasks or changes
+batch N. This is distinct from tile batching: native stacked tiling falls back
+until its changing batch contract has separate validation.
 
-For unstacked tiling, uniform spatial tiles whose count is divisible by the
-actual tile group size use native per-clip streaming even when the opt-in is
-set to `2`. This avoids buffering a second decoded clip when the window cannot
-reduce the busiest rank's tile count. The decision uses each request's shape
-and current tiling mode, so it also follows the small-canvas rank-local guard.
-Stacked tiling keeps window scheduling because changing batch sizes can change
-its compute cost. Neither path changes the output order or tile geometry.
+Window selection uses only integer task geometry and a group-minimum memory
+budget. ON performs no trial decode, latency calibration, millisecond prediction
+or online benefit test. Every clip is decoded once. The bounded candidates are
+W=1 through min(16, clip count), including short tails and incomplete windows.
+Sixteen limits buffered outputs and metadata; it is an internal engineering
+bound, not a public parameter or a group-size assumption.
 
-Short tails and different-shaped edge tiles are scheduled separately.
-Buckets with fewer tasks than ranks decode locally on every rank to avoid
-empty-task gathers. The existing small-canvas rank-local guard remains in
-effect. Single-rank or disabled tile parallelism uses native per-clip decode.
-Training, stateful `decoder_parallel`, unsupported checkpoint tile methods,
-and `VLLM_OMNI_VAE_LEGACY_TEMPORAL=1` are incompatible with this opt-in.
-Incremental/chunked output continues to use its existing per-clip path;
-the window applies only to complete-video streaming uint8 decode. Audio
-decode, weight offload, and Encoder/DiT scheduling are unchanged.
+For each candidate, compatible shapes form separate buckets. Assignment waste
+is the sum of P times the largest per-rank bucket work minus useful unique work,
+measured in latent elements. Replicated buckets count their duplicate work.
+W1 uses the original row-major ownership. Among memory-feasible candidates the
+planner minimizes this integer waste, breaking ties toward smaller windows.
+For uniform tiles, P/gcd(S,P) describes the smallest divisible window; it is
+neither a speed prediction nor an unconditional choice. S<P alone does not
+force a fallback, and divisible total tile counts can still contain different
+edge shapes. All remaining clips participate in the decision.
 
-For a component-only correctness and latency comparison with a trusted local
-checkpoint, run from the repository root in an accelerator environment:
+One free-memory query and one MIN reduction obtain an incremental budget across
+video ranks: at most 2 GiB and one quarter of currently free device memory.
+The estimate bounds decoded outputs, stitching, send/receive/unpack storage and
+input context copies, relative to the native peak. Native activation workspace
+still uses original N. The reserve does not guarantee against external allocations
+or all checkpoint workspace peaks. Insufficient budget, single rank/clip,
+disabled tiling, stacked tiles or an unsupported checkpoint contract retain
+native execution. Invalid types, rank/group metadata, training/stateful decoder
+use and conflicting legacy temporal options raise errors. No plan is cached
+across requests.
+
+Logs distinguish `requested`, `selected`, and `executed`, with actual group size,
+input/tile geometry, candidates and chosen window, integer assignment waste,
+per-rank task counts and work units, original batch N, memory budget and reasons.
+Task work is never reported as predicted milliseconds. Enabling scheduling can
+increase memory and can improve, preserve or worsen latency; matched measurements
+must include selection, resource queries, control, communication and stitching.
+A selected window may contain replicated
+shape buckets or a native singleton tail; selection alone is not proof of
+cross-rank execution or device overlap. Sixteen-rank planning is covered offline;
+device validation depends on available hardware and must be reported separately.
+
+For a component-only OFF/ON comparison (excluding DiT, audio, DLO and MP4):
 
 ```bash
 torchrun --nproc-per-node=4 \
   tests/diffusion/models/minimax_h3/benchmark_vae_temporal_window.py \
-  --model "$MODEL/FL2VA/video_vae" --output /tmp/h3-vae-window \
-  --warmup 1 --repeat 3
+  --model /path/to/trusted/video_vae --output /path/to/results \
+  --latent-shape 1 24 20 30 52 --warmup 1 --repeat 3
 ```
 
-This uses deterministic synthetic latents and native checkpoint tiling,
-warms up both modes, alternates their order, and checks identical uint8
-outputs. Per-rank JSON records include synchronized decode latency and peak
-allocated memory. For each repetition, compare the slowest rank; this is
-not an end-to-end or audio/video pipeline benchmark.
+Compare the maximum rank latency per repetition on identical physical devices.
+The benchmark checks pre-encoding video SHA256 and records raw samples and peak
+memory. Its synchronized decode wall time includes compute, collectives and
+stitching; it must not be described as pure device compute or complete E2E.
+
+---
 
 ## Batch Parallel Decode
 

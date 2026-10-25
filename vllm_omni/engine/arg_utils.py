@@ -704,7 +704,7 @@ class OrchestratorArgs:
     step_execution: bool = False
     vae_use_slicing: bool = False
     vae_use_tiling: bool = False
-    vae_temporal_window_size: int = 1
+    enable_vae_temporal_scheduling: bool = False
     vae_fast_path: str = "lossless"
     vae_encode_fast_path: str = "lossless"
     enable_multithread_weight_load: bool = True
