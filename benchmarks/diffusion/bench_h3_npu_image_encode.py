@@ -19,6 +19,7 @@ import numpy as np
 import torch
 import torch.distributed as dist
 import torch_npu
+import vllm
 from PIL import Image
 
 from vllm_omni.diffusion.models.minimax_h3.vae import MiniMaxH3VideoVAE
@@ -142,6 +143,10 @@ def main():
         continuous_s=formal[-1]["end"] - formal[0]["start"],
         latents=arrays,
         versions=versions,
+        vllm_source=vllm.__file__,
+        hf32=bool(torch.npu.conv.allow_hf32),
+        input_sha256=[hashlib.sha256(Path(path).read_bytes()).hexdigest() for path in args.images],
+        prepared_rgb_sha256=[hashlib.sha256(np.asarray(image).tobytes()).hexdigest() for image in prepared],
         adapter_source=__import__(MiniMaxH3VideoVAE.__module__, fromlist=["__file__"]).__file__,
         flags={key: value for key, value in os.environ.items() if key.startswith("VLLM_OMNI_H3_NPU_IMAGE_")},
         prepared_sizes=[list(image.size) for image in prepared],

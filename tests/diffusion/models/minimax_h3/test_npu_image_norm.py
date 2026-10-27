@@ -2,8 +2,9 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM-Omni project
 import importlib.util
 import sys
+from dataclasses import dataclass
 from pathlib import Path
-from types import SimpleNamespace
+from types import ModuleType
 
 import pytest
 import torch
@@ -16,6 +17,11 @@ _SPEC = importlib.util.spec_from_file_location("h3_npu_image_norm_test", _PATH)
 assert _SPEC is not None and _SPEC.loader is not None
 ops = importlib.util.module_from_spec(_SPEC)
 _SPEC.loader.exec_module(ops)
+
+
+@dataclass(frozen=True)
+class Device:
+    type: str = "npu"
 
 
 def test_default_off_and_non_npu(monkeypatch):
@@ -72,14 +78,16 @@ def test_private_dispatch_keeps_decoder_and_other_instances_unchanged(monkeypatc
         calls.append(x)
         return (F.silu(F.group_norm(x, groups, weight, bias, eps)),)
 
-    monkeypatch.setitem(sys.modules, "torch_npu", SimpleNamespace(npu_group_norm_silu=fused))
+    backend = ModuleType("torch_npu")
+    monkeypatch.setattr(backend, "npu_group_norm_silu", fused, raising=False)
+    monkeypatch.setitem(sys.modules, "torch_npu", backend)
     monkeypatch.setenv(ops._ENV, "1")
     model = nn.Module()
     model.encoder = ResnetBlock3D().eval()
     model.decoder = ResnetBlock3D().eval()
     other = ResnetBlock3D().eval()
     global_helper = ResnetBlock3D.forward.__globals__["norm_silu"]
-    device = SimpleNamespace(type="npu")
+    device = Device()
     assert ops.install_npu_image_norm(model, device=device) == 1
     assert ops.install_npu_image_norm(model, device=device) == 1
     assert ResnetBlock3D.forward.__globals__["norm_silu"] is global_helper
