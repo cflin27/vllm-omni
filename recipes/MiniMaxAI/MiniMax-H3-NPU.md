@@ -554,10 +554,19 @@ four-stage deployment explicitly:
 
 ```bash
 export MODEL=/data1/weights/minimax-h3
+export VLLM_WORKER_SHUTDOWN_TIMEOUT_SECONDS=15
 vllm serve "$MODEL" \
   --omni --trust-remote-code --task-type fl2va \
   --deploy-config vllm_omni/deploy/minimax_h3_disaggregated_parallel_decode_3plus1.yaml
 ```
+
+The command gives Encoder workers 15 seconds to exit before signal escalation.
+NPU runtime finalization can continue after Python model and connector cleanup;
+the upstream five-second worker grace was insufficient in functional testing.
+This uses vLLM's existing environment setting and does not change its default.
+Keep the setting in the launching environment for both serial and parallel
+comparisons. The stage process manager includes worker grace and engine teardown
+in its default close budget; an explicitly supplied timeout retains its meaning.
 
 This configuration keeps one API and routes Encoder → DiT → two independent
 decoder stages. Stage 2 loads only Video VAE; stage 3 loads only Audio VAE.

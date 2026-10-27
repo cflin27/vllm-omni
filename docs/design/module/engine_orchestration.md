@@ -116,6 +116,16 @@ retain their existing admission and routing behavior.
 
 Regression coverage: `tests/engine/test_orchestrator_parallel_decode.py`.
 
+### Concurrent stage teardown
+
+After request handlers and membership tasks stop, the orchestrator closes live
+stage replicas concurrently and waits for every close before StageRuntime
+releases its resources. Per-stage grace periods therefore overlap within the
+outer shutdown join. Async diffusion clients keep socket operations on the
+owning event loop and move blocking process joins to threads; inline diffusion
+clients cancel pending tasks before waiting for engine teardown. Synchronous
+backend clients retain their existing shutdown entry point.
+
 These identifiers are proposals while the document is `draft`.
 
 ### ORCH-INV-001: The orchestrator owns cross-stage routing

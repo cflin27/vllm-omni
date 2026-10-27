@@ -574,6 +574,18 @@ class StageDiffusionClient(StageClientBase):
             )
 
     def shutdown(self) -> None:
+        shutdown_requested = self._request_shutdown()
+        self._shutdown_process(shutdown_requested)
+        self._close_sockets()
+
+    async def shutdown_async(self) -> None:
+        # Keep ZMQ socket operations on their owning event loop. Only process
+        # joins move to a thread, allowing other stages to stop concurrently.
+        shutdown_requested = self._request_shutdown()
+        await asyncio.to_thread(self._shutdown_process, shutdown_requested)
+        self._close_sockets()
+
+    def _request_shutdown(self) -> bool:
         if self._latent_transport is not None:
             self._latent_transport.close()
         self._shutting_down = True
@@ -585,21 +597,23 @@ class StageDiffusionClient(StageClientBase):
         except Exception:
             pass
 
+        return shutdown_requested
+
+    def _shutdown_process(self, shutdown_requested: bool) -> None:
         if self._proc_manager is not None and self._proc_manager.proc.is_alive():
-            if self._proc_manager.distributed_executor_backend == "ray":
-                # Let the subprocess kill its remote actors before terminating it.
-                stopped = shutdown_requested and self._proc_manager.wait_for_shutdown(timeout=10.0)
-                if not stopped:
-                    logger.warning(
-                        "Stage-%d Ray diffusion subprocess did not stop within %.1fs; "
-                        "falling back to signal-based shutdown",
-                        self.stage_id,
-                        10.0,
-                    )
-                    self._proc_manager.shutdown(timeout=10.0)
-            else:
+            # Both MP workers and Ray actors need their owner's normal close
+            # path. A signal can interrupt that path after it marks itself
+            # closed, leaving queues or workers unreleased. Allow the worker
+            # grace period (15s) plus process teardown before escalating.
+            stopped = shutdown_requested and self._proc_manager.wait_for_shutdown(timeout=20.0)
+            if not stopped:
+                logger.warning(
+                    "Stage-%d diffusion subprocess did not stop gracefully; falling back to signal-based shutdown",
+                    self.stage_id,
+                )
                 self._proc_manager.shutdown(timeout=10.0)
 
+    def _close_sockets(self) -> None:
         self._request_socket.close(linger=0)
         self._response_socket.close(linger=0)
         self._zmq_ctx.term()

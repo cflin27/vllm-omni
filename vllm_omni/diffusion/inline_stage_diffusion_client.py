@@ -342,14 +342,23 @@ class InlineStageDiffusionClient(StageClientBase):
             raise
 
     def shutdown(self) -> None:
+        self._cancel_tasks()
+        self._shutdown_engine()
+
+    async def shutdown_async(self) -> None:
+        self._cancel_tasks()
+        await asyncio.to_thread(self._shutdown_engine)
+
+    def _cancel_tasks(self) -> None:
+        for task in self._tasks.values():
+            if not task.done():
+                task.get_loop().call_soon_threadsafe(task.cancel)
+
+    def _shutdown_engine(self) -> None:
         with self._shutdown_lock:
             if self._shutdown_complete:
                 return
             self._shutting_down = True
-
-            # Cancel all pending tasks
-            for task in self._tasks.values():
-                task.cancel()
 
             try:
                 # Stop the engine first so any control RPC running in the thread
