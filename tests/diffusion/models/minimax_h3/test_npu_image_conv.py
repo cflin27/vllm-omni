@@ -3,8 +3,8 @@
 """CPU dispatch, padding and fallback checks; NPU benchmarks run separately."""
 
 import importlib.util
+from dataclasses import dataclass
 from pathlib import Path
-from types import SimpleNamespace
 
 import pytest
 import torch
@@ -17,6 +17,11 @@ _SPEC = importlib.util.spec_from_file_location("h3_npu_image_conv_test", _PATH)
 assert _SPEC is not None and _SPEC.loader is not None
 ops = importlib.util.module_from_spec(_SPEC)
 _SPEC.loader.exec_module(ops)
+
+
+@dataclass(frozen=True)
+class Device:
+    type: str = "npu"
 
 
 def test_default_off_and_non_npu(monkeypatch):
@@ -60,7 +65,7 @@ def test_installer_is_scoped_and_preserves_overrides(monkeypatch):
 
     model.encoder[1].forward = custom
     monkeypatch.setenv(ops._ENV, "1")
-    device = SimpleNamespace(type="npu")
+    device = Device()
     assert ops.install_npu_image_conv(model, device=device) == 2
     original = model.encoder[0]._omni_image_conv_forward
     assert ops.install_npu_image_conv(model, device=device) == 2
