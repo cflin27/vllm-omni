@@ -31,6 +31,39 @@ reference media is still encoded locally.
 
 The generated MP4 contains H.264 video and synchronized stereo audio.
 
+## NPU image-encoder temporal convolution (experimental)
+
+Set `VLLM_OMNI_H3_NPU_IMAGE_T1_CONV=1` before starting the worker to enable
+an opt-in optimization for the H3 video VAE's **image** input path. It is
+disabled by default. Causal convolutions with a single input frame use only
+the last temporal weight slice; the backend remains Conv3D and the current
+HF32 setting is preserved. This removes multiplication by padded zero frames.
+
+The optimization applies to inference-only FP32 NPU inputs with the validated
+checkpoint convolution implementation and temporal kernel size 1 or 3.
+Multi-frame video input, training, compilation, spatial-parallel convolution,
+and unknown remote-code implementations retain their original forward path.
+The decoder is unchanged. Set the variable to `0` and restart to disable it.
+No derived weight is cached: each invocation reads the live parameter, including
+after device transfers, state-dict updates, or distributed layerwise offload.
+This flag does not change the transformer's quantization or offload settings.
+
+For component comparisons, run the checked-in benchmark in fresh processes
+with the same physical cards and reference image order. First unset the flag
+for the baseline, then set it to `1` for the candidate. Each arm uses one
+warmup and three measured requests, exporting all latents for exact comparison.
+Add `--profile` for a separate warmup and one rank0 L1 capture with shapes and
+stacks; profile timing is excluded from the reported mean. This benchmark
+keeps only the VAE encoder resident and does not measure DLO or E2E latency.
+
+```bash
+export VLLM_OMNI_H3_NPU_IMAGE_T1_CONV=1
+torchrun --nproc-per-node=8 benchmarks/diffusion/bench_h3_npu_image_encode.py \
+  --model "$MODEL/Ref2VA/video_vae" \
+  --images ref-1.png ref-2.png ref-3.png ref-4.png ref-5.png ref-6.png \
+  --height 480 --width 832 --warmup 1 --repeat 3 --output results/candidate
+```
+
 ## Prerequisites
 
 The checkpoint requires Hugging Face access approval. Authenticate once;
