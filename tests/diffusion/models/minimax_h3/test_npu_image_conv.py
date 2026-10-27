@@ -54,6 +54,16 @@ def test_unsupported_conv_contract():
     assert not ops._supported_module(nn.Conv3d(4, 8, 3, padding=1))
 
 
+@pytest.mark.parametrize("padding_mode", ["reflect", "replicate", "circular"])
+def test_nonzero_padding_mode_keeps_original_forward(monkeypatch, padding_mode):
+    model = nn.Module()
+    model.encoder = nn.Conv3d(4, 8, 1, padding_mode=padding_mode).eval()
+    original = model.encoder.forward
+    monkeypatch.setenv(ops._ENV, "1")
+    assert ops.install_npu_image_conv(model, device=Device()) == 0
+    assert model.encoder.forward == original
+
+
 def test_installer_is_scoped_and_preserves_overrides(monkeypatch):
     model = nn.Module()
     model.encoder = nn.Sequential(nn.Conv3d(4, 8, 1), nn.Conv3d(8, 8, 1)).eval()

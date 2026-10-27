@@ -47,7 +47,9 @@ def _fingerprint(cls: type) -> str:
 
 def _supported_module(module: nn.Module) -> bool:
     if type(module) is nn.Conv3d:
-        return module.kernel_size[0] == 1 and module.padding == (0, 0, 0)
+        return (
+            module.kernel_size[0] == 1 and module.padding == (0, 0, 0) and module.padding_mode == "zeros"
+        )
     cls = type(module)
     if cls.__name__ != "SpatialParallelConv3d" or cls.__bases__[0].__name__ != "BaseConv3d":
         return False
