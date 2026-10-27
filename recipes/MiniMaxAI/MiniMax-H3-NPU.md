@@ -656,6 +656,14 @@ synchronization. If this cannot be established, admission fails with HTTP 503
 until the service is restarted. `decode_timeout_s` covers dispatch and decode;
 recovery may require a further bounded wait.
 
+The multiprocess DiT executor has a separate execution budget:
+`VLLM_OMNI_DLO_DP_WAVE_TIMEOUT` defaults to 600 seconds and also bounds
+ordinary request-mode execution. Increasing `decode_timeout_s` does not
+extend that budget. For long requests, set an explicit budget before starting
+the service, for example `VLLM_OMNI_DLO_DP_WAVE_TIMEOUT=3000`, and size it for
+the measured workload. A timeout still fails the worker group; extending the
+budget does not recover a failed group or establish a performance gain.
+
 Use full-output decoding (`preencode_mp4: false`). Incremental/preencoded MP4
 continues to use the serial implementation. To roll back, restart with the
 original deployment YAML or omit `--deploy-config` for the standard pipeline.
