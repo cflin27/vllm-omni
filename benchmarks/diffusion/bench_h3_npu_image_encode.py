@@ -63,7 +63,9 @@ def main():
     installed = dict(
         temporal_conv=sum(hasattr(module, "_omni_image_conv_forward") for module in vae.model.modules()),
         norm_silu=sum(bool(getattr(module, "_omni_image_norm_installed", False)) for module in vae.model.modules()),
-        weight_cache=sum(bool(getattr(module, "_omni_image_conv_cache_enabled", False)) for module in vae.model.modules()),
+        weight_cache=sum(
+            bool(getattr(module, "_omni_image_conv_cache_enabled", False)) for module in vae.model.modules()
+        ),
     )
     images = [Image.open(path).convert("RGB") for path in args.images]
     prepared = _prepare_encoder_images("ref2va", images, height=args.height, width=args.width)
