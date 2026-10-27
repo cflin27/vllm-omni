@@ -1136,7 +1136,7 @@ def _project_omni_stage_engine_args(
         "default_sampling_params",
         "has_sampling_extra_args",
     }
-    runtime_excluded_fields = {"devices", "num_replicas", "env", "num_gpus", "cuda_mps"}
+    runtime_excluded_fields = {"devices", "num_replicas", "env", "num_gpus", "cuda_mps", "parallel_decode_timeout_s"}
     if is_diffusion:
         # Diffusion owns these fields. Model defaults must not overwrite the
         # explicit diffusion selection copied above. Retain explicit model

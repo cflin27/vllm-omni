@@ -108,6 +108,25 @@ def test_timeout_projects_only_into_parallel_runtime(tmp_path):
     assert all("parallel_decode_timeout_s" not in stage.to_omegaconf().runtime for stage in serial)
 
 
+def test_parallel_timeout_stays_out_of_backend_engine_args(tmp_path):
+    from vllm_omni.config.omni_config import VllmOmniConfig
+    from vllm_omni.engine.stage_init_utils import (
+        _project_omni_stage_engine_args,
+        extract_stage_metadata_from_omni_stage_config,
+    )
+
+    raw = _config()
+    raw["stage_parallel"]["decode_timeout_s"] = 45
+    config = VllmOmniConfig.from_pipeline_config(
+        MINIMAX_H3_PARALLEL_DECODE_PIPELINE, user_deploy_config=_load(tmp_path, raw)
+    )
+    for stage_id in range(4):
+        stage = config.stage_by_id(stage_id)
+        assert stage.runtime_config.parallel_decode_timeout_s == 45
+        assert extract_stage_metadata_from_omni_stage_config(stage).runtime_cfg.parallel_decode_timeout_s == 45
+        assert "parallel_decode_timeout_s" not in _project_omni_stage_engine_args(stage)
+
+
 @pytest.mark.parametrize("layout", ["2plus2", "3plus1", "4plus4", "7plus1"])
 def test_delivered_partition_examples_validate(layout):
     path = Path(__file__).parents[2] / f"vllm_omni/deploy/minimax_h3_disaggregated_parallel_decode_{layout}.yaml"
