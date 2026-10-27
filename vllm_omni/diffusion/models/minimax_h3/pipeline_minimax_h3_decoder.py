@@ -12,6 +12,9 @@ from torch import nn
 from vllm_omni.diffusion.data import DiffusionOutput, OmniDiffusionConfig
 from vllm_omni.diffusion.distributed.utils import get_local_device
 from vllm_omni.diffusion.models.interface import SupportAudioOutput, SupportsComponentDiscovery
+from vllm_omni.diffusion.offloader import OffloadPlan
+from vllm_omni.diffusion.offloader.config import OffloadStrategy, offload_streams_blocks, resolve_offload_strategy
+from vllm_omni.diffusion.offloader.module_residency import BoundedAllocatorCache
 from vllm_omni.diffusion.profiler.diffusion_pipeline_profiler import DiffusionPipelineProfilerMixin
 from vllm_omni.diffusion.worker.request_batch import DiffusionRequestBatch
 from vllm_omni.errors import OmniClientError
@@ -24,6 +27,7 @@ from .pipeline_minimax_h3 import (
     MINIMAX_H3_FPS,
     MiniMaxH3Pipeline,
     _prepare_minimax_h3_video_output,
+    _register_dlo_component_cache,
     get_minimax_h3_post_process_func,
 )
 from .vae import MiniMaxH3AudioVAE, MiniMaxH3VideoVAE
@@ -60,6 +64,7 @@ class MiniMaxH3DecoderPipeline(
     _dit_modules: ClassVar[list[str]] = []
     _encoder_modules: ClassVar[list[str]] = []
     _vae_modules: ClassVar[list[str]] = ["video_vae", "audio_vae"]
+    _offload_plan: ClassVar[OffloadPlan] = OffloadPlan(on_demand_component_paths=frozenset({"video_vae", "audio_vae"}))
     _PROFILER_TARGETS: ClassVar[list[str]] = ["decode", "video_vae.decode_latent", "audio_vae.decode_latent"]
 
     # Reuse decoding behavior to preserve regular and chunked MP4 output contracts.
@@ -70,6 +75,24 @@ class MiniMaxH3DecoderPipeline(
     _offload_model_cpu_stage_output = MiniMaxH3Pipeline._offload_model_cpu_stage_output
     _release_stage_cache = MiniMaxH3Pipeline._release_stage_cache
     _is_output_owner_rank = staticmethod(MiniMaxH3Pipeline._is_output_owner_rank)
+
+    def _decoder_load_device(self) -> torch.device:
+        # Match the combined H3 pipeline's compatibility policy. Explicit
+        # dit/text_encoder selection must not implicitly offload native VAEs.
+        legacy_staging = self.od_config.diffusion_offload_config is None and offload_streams_blocks(self.od_config)
+        return torch.device("cpu") if legacy_staging else self.device
+
+    def _setup_decoder_component_cache(self) -> None:
+        self._dlo_component_cache = None
+        if (
+            self._decoder_load_device().type == "cpu"
+            and resolve_offload_strategy(self.od_config) is OffloadStrategy.DISTRIBUTED_LAYER_WISE
+        ):
+            self._dlo_component_cache = BoundedAllocatorCache(self.device)
+            _register_dlo_component_cache(
+                self._dlo_component_cache,
+                *(getattr(self, name, None) for name in self._vae_modules),
+            )
 
     def __init__(self, *, od_config: OmniDiffusionConfig, prefix: str = "") -> None:
         del prefix
@@ -83,16 +106,21 @@ class MiniMaxH3DecoderPipeline(
         self.video_vae = MiniMaxH3VideoVAE(
             str(model_path / "video_vae"),
             device=self.device,
+            load_device=self._decoder_load_device(),
+            pin_memory=od_config.pin_cpu_memory,
             decode_only=True,
             trust_remote_code=od_config.trust_remote_code,
         )
         self.audio_vae = MiniMaxH3AudioVAE(
             str(model_path / "audio_vae"),
             device=self.device,
+            load_device=self._decoder_load_device(),
+            pin_memory=od_config.pin_cpu_memory,
             decode_only=True,
             trust_remote_code=od_config.trust_remote_code,
         )
         self.vae = self.video_vae
+        self._setup_decoder_component_cache()
         self.weights_sources = []
         self.setup_diffusion_pipeline_profiler(
             enable_diffusion_pipeline_profiler=od_config.enable_diffusion_pipeline_profiler
@@ -192,6 +220,8 @@ class _MiniMaxH3ModalityDecoderPipeline(MiniMaxH3DecoderPipeline):
             self.video_vae = MiniMaxH3VideoVAE(
                 str(model_path / "video_vae"),
                 device=self.device,
+                load_device=self._decoder_load_device(),
+                pin_memory=od_config.pin_cpu_memory,
                 decode_only=True,
                 trust_remote_code=od_config.trust_remote_code,
             )
@@ -204,6 +234,8 @@ class _MiniMaxH3ModalityDecoderPipeline(MiniMaxH3DecoderPipeline):
                 MiniMaxH3AudioVAE(
                     str(model_path / "audio_vae"),
                     device=self.device,
+                    load_device=self._decoder_load_device(),
+                    pin_memory=od_config.pin_cpu_memory,
                     decode_only=True,
                     trust_remote_code=od_config.trust_remote_code,
                 )
@@ -213,6 +245,7 @@ class _MiniMaxH3ModalityDecoderPipeline(MiniMaxH3DecoderPipeline):
             self.vae = self.audio_vae
             if self.audio_vae is None:
                 self._vae_modules = []
+        self._setup_decoder_component_cache()
         self.weights_sources = []
         self.setup_diffusion_pipeline_profiler(
             profiler_targets=[] if self.modality == "audio" and self.audio_vae is None else None,

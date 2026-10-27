@@ -592,6 +592,39 @@ video group size, with `vae_parallel_mode: tile`. The audio group uses
 device pool. Overlapping decoder groups require `allow_device_overlap: true`;
 process isolation alone does not guarantee device computation overlaps.
 
+### Decoder DLO switch
+
+Each decoder stage uses the existing `enable_distributed_layerwise_offload`
+boolean. The supplied split-decoder YAMLs enable it on stages 2 and 3; the
+serial decoder example enables it on stage 2. Set it to `false` on those
+stages to keep their native VAE weights resident instead. Stage 1's DiT
+setting is independent: changing only that setting does not offload decoder
+workers. For a completely resident deployment, also disable stage 1's DLO
+and budget for all stages' weights on shared devices.
+
+```yaml
+# Under each decoder entry in stages:
+enable_distributed_layerwise_offload: true  # false: keep VAE weights resident
+```
+
+The independent `pin_cpu_memory` setting controls host weight pinning (default
+`true`). Set it to `false` explicitly when host locked-memory allocation is
+unavailable; DLO still stages weights between CPU and device, using pageable
+host memory. This changes transfer characteristics and must be recorded in
+performance comparisons. Allocation failures are not silently retried.
+
+With DLO enabled, decoders load native weights on CPU, use the existing
+component stagers to load weights for decode, and release device weights on
+completion or failure. The generic offload backend preserves this on-demand
+placement rather than moving VAEs back to the device during initialization.
+The Video VAE and Audio VAE are staged as components; decoder blocks are not
+weight-sharded or streamed layer by layer. DiT block DLO remains unchanged.
+With the switch disabled, no component staging or DLO allocator cache is
+installed. Both states preserve tile geometry, decoder dtype and output format.
+The compact `diffusion_offload_config` API selects only `dit`/`text_encoder`;
+it does not select VAEs and must not be passed to decoder-only workers as a
+substitute for this compatibility switch.
+
 Examples for `1plus1`, `2plus1`, `2plus2`, `3plus1`, `4plus4` and `7plus1` are
 provided alongside the base parallel YAML. Their names describe decoder
 placement only. Native audio decoding executes on the audio group's output

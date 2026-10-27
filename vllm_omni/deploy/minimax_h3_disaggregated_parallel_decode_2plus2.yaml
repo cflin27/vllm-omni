@@ -42,6 +42,7 @@ stages:
     num_inference_steps: 50
     seed: 42
 - stage_id: 2
+  enable_distributed_layerwise_offload: true
   devices: 0,1
   max_num_seqs: 1
   enforce_eager: true
@@ -54,6 +55,7 @@ stages:
     seed: 42
   vae_use_tiling: true
 - stage_id: 3
+  enable_distributed_layerwise_offload: true
   devices: 2,3
   max_num_seqs: 1
   enforce_eager: true

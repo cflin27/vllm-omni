@@ -112,3 +112,18 @@ def test_timeout_projects_only_into_parallel_runtime(tmp_path):
 def test_delivered_partition_examples_validate(layout):
     path = Path(__file__).parents[2] / f"vllm_omni/deploy/minimax_h3_disaggregated_parallel_decode_{layout}.yaml"
     validate_stage_parallel_layout(load_deploy_config(path))
+
+
+@pytest.mark.parametrize("dlo", [False, True])
+def test_decoder_dlo_switch_is_independent_of_dit(tmp_path, dlo):
+    from vllm_omni.config.stage_config import merge_pipeline_deploy
+
+    raw = _config()
+    for stage in raw["stages"][2:]:
+        assert stage["enable_distributed_layerwise_offload"]
+        stage["enable_distributed_layerwise_offload"] = dlo
+    merged = merge_pipeline_deploy(MINIMAX_H3_PARALLEL_DECODE_PIPELINE, _load(tmp_path, raw))
+    args = [stage.to_omegaconf().engine_args for stage in merged]
+    assert args[1].enable_distributed_layerwise_offload
+    assert args[2].enable_distributed_layerwise_offload is dlo
+    assert args[3].enable_distributed_layerwise_offload is dlo
