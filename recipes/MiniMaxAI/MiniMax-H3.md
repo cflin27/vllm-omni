@@ -44,9 +44,22 @@ checkpoint convolution implementation and temporal kernel size 1 or 3.
 Multi-frame video input, training, compilation, spatial-parallel convolution,
 and unknown remote-code implementations retain their original forward path.
 The decoder is unchanged. Set the variable to `0` and restart to disable it.
-No derived weight is cached: each invocation reads the live parameter, including
-after device transfers, state-dict updates, or distributed layerwise offload.
 This flag does not change the transformer's quantization or offload settings.
+
+Optionally set `VLLM_OMNI_H3_NPU_IMAGE_T1_WEIGHT_CACHE=1` together with the
+convolution flag to reuse the contiguous temporal weight slice. This separate
+optimization is also disabled by default. It caches within the current encoder
+residency interval, including across tiles and images, and releases derived
+weights before H3 offloads the encoder. DLO therefore rebuilds on the next
+residency interval; the cache does not keep encoder weights on the NPU.
+Parameter identity, version, storage, dtype, device, layout, and stream changes
+invalidate reuse. State-dict loads and normal device/dtype conversions clear
+the cache; unversioned inference parameters and unknown streams bypass it.
+Before edits through `.data` or external storage aliases, explicitly call
+`clear_npu_image_conv_cache(vae.model)` from
+`vllm_omni.diffusion.models.minimax_h3.ops.vae.npu_image_conv`.
+Such writes can bypass PyTorch's version counter. Set the cache flag to `0`
+and restart to retain temporal cropping without caching.
 
 For component comparisons, run the checked-in benchmark in fresh processes
 with the same physical cards and reference image order. First unset the flag

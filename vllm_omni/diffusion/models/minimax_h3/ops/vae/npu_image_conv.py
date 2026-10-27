@@ -9,7 +9,7 @@ import hashlib
 import inspect
 import os
 import textwrap
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
 from types import MethodType
@@ -20,6 +20,7 @@ import torch.nn.functional as F
 
 _IMAGE_ENCODE = ContextVar("h3_npu_image_conv", default=False)
 _ENV = "VLLM_OMNI_H3_NPU_IMAGE_T1_CONV"
+_CACHE_ENV = "VLLM_OMNI_H3_NPU_IMAGE_T1_WEIGHT_CACHE"
 # AST fingerprints of the checkpoint's BaseConv3d / SpatialParallelConv3d.
 # Unknown remote implementations retain their own padding and forward methods.
 _CONTRACT = (
@@ -101,16 +102,82 @@ def _eligible(module: nn.Conv3d, x: torch.Tensor) -> bool:
     )
 
 
+def _clear_weight(module: nn.Module, *args) -> None:
+    module._omni_image_conv_weight = None
+
+
+def clear_npu_image_conv_cache(model: nn.Module) -> None:
+    """Release derived encoder weights before H3 residency storage is rebound.
+
+    Also call before edits through .data or external aliases, which can bypass
+    PyTorch's version counter. No parameter or state_dict entry is added.
+    """
+    for part in ("encoder", "quant_conv"):
+        root = getattr(model, part, None)
+        if isinstance(root, nn.Module):
+            for module in root.modules():
+                if getattr(module, "_omni_image_conv_cache_enabled", False):
+                    _clear_weight(module)
+
+
+def _apply(self: nn.Module, fn: Callable, recurse: bool = True):
+    _clear_weight(self)
+    return self._omni_image_conv_apply(fn, recurse=recurse)
+
+
+def _weight_key(weight: torch.Tensor) -> tuple | None:
+    try:
+        version = weight._version
+    except RuntimeError:
+        # Inference tensors cannot report mutations: use the live slice.
+        return None
+    if weight.device.type == "cpu":
+        stream = None
+    else:
+        backend = torch.get_device_module(weight.device)
+        current = backend.current_stream(weight.device)
+        stream = getattr(current, "npu_stream", None)
+        if stream is None:
+            return None
+    return (
+        version,
+        weight.data_ptr(),
+        weight.untyped_storage()._cdata,
+        weight.device,
+        weight.dtype,
+        tuple(weight.shape),
+        tuple(weight.stride()),
+        stream,
+    )
+
+
+def _weight(module: nn.Conv3d) -> torch.Tensor:
+    source = module.weight
+    if not getattr(module, "_omni_image_conv_cache_enabled", False) or source.shape[2] == 1:
+        return source[:, :, -1, :, :].contiguous().unsqueeze(2)
+    key = _weight_key(source)
+    cached = module._omni_image_conv_weight
+    if key is not None and cached is not None and cached[0] is source and cached[1] == key:
+        return cached[2]
+    _clear_weight(module)
+    packed = source[:, :, -1, :, :].contiguous().unsqueeze(2)
+    if key is not None:
+        module._omni_image_conv_weight = (source, key, packed)
+    return packed
+
+
 def _forward(self: nn.Conv3d, x: torch.Tensor) -> torch.Tensor:
     if not _eligible(self, x):
+        if getattr(self, "_omni_image_conv_cache_enabled", False):
+            _clear_weight(self)
         return self._omni_image_conv_forward(x)
     # Keep the Conv3D backend and its current HF32 policy. For causal T=1,
-    # preceding temporal slices multiply padded zeros. No derived weight is
-    # retained: parameter updates, device moves and DLO use the live weight.
+    # preceding temporal slices multiply padded zeros. The optional cache
+    # reuses only this exact contiguous slice within one residency interval.
     ph, pw = self.padding[1:]
     if ph or pw:
         x = F.pad(x.squeeze(2), (pw, pw, ph, ph), mode=self.pad_mode).unsqueeze(2)
-    weight = self.weight[:, :, -1, :, :].contiguous().unsqueeze(2)
+    weight = _weight(self)
     return F.conv3d(x, weight, self.bias, self.stride, 0, self.dilation, self.groups)
 
 
@@ -131,5 +198,11 @@ def install_npu_image_conv(model: nn.Module, *, device: torch.device) -> int:
                     continue
                 module._omni_image_conv_forward = module.forward
                 module.forward = MethodType(_forward, module)
+            if os.environ.get(_CACHE_ENV, "0") == "1" and not getattr(module, "_omni_image_conv_cache_enabled", False):
+                module._omni_image_conv_cache_enabled = True
+                module._omni_image_conv_weight = None
+                module._omni_image_conv_apply = module._apply
+                module._apply = MethodType(_apply, module)
+                module.register_load_state_dict_pre_hook(_clear_weight)
             installed += 1
     return installed

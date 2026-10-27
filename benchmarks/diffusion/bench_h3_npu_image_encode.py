@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM-Omni project
-"""Resident H3 NPU image-encoder latency and latent exports (not E2E).
+"""H3 NPU image-encoder latency and latent exports (not E2E).
 
 Run each configuration in a fresh process on the same physical devices.
 Environment flags select opt-in optimizations before model construction.
@@ -36,6 +36,7 @@ def main():
     parser.add_argument("--warmup", type=int, default=1)
     parser.add_argument("--repeat", type=int, default=3)
     parser.add_argument("--profile", action="store_true", help="After timing, extra warmup + one L1 rank0 capture")
+    parser.add_argument("--offload", action="store_true", help="Load/offload encoder around each six-image request")
     args = parser.parse_args()
     if args.warmup < 1 or args.repeat < 3:
         parser.error("use at least one warmup and three measured requests")
@@ -50,12 +51,19 @@ def main():
     if result_path.exists():
         raise FileExistsError(result_path)
     assert torch.npu.conv.allow_hf32, "benchmark requires the default HF32 convolution policy"
-    vae = MiniMaxH3VideoVAE(args.model, device=device, encode_only=True, trust_remote_code=True).eval()
+    vae = MiniMaxH3VideoVAE(
+        args.model,
+        device=device,
+        load_device=torch.device("cpu") if args.offload else None,
+        encode_only=True,
+        trust_remote_code=True,
+    ).eval()
     if world > 1:
         vae.set_parallel_size(world, process_group=dist.group.WORLD)
     installed = dict(
         temporal_conv=sum(hasattr(module, "_omni_image_conv_forward") for module in vae.model.modules()),
         norm_silu=sum(bool(getattr(module, "_omni_image_norm_installed", False)) for module in vae.model.modules()),
+        weight_cache=sum(bool(getattr(module, "_omni_image_conv_cache_enabled", False)) for module in vae.model.modules()),
     )
     images = [Image.open(path).convert("RGB") for path in args.images]
     prepared = _prepare_encoder_images("ref2va", images, height=args.height, width=args.width)
@@ -66,7 +74,21 @@ def main():
         torch.npu.synchronize()
 
     def encode():
-        return [vae.encode_image(image) for image in prepared]
+        if args.offload:
+            vae._load_part_to_device("encoder")
+        try:
+            return [vae.encode_image(image) for image in prepared]
+        finally:
+            if args.offload:
+                vae._offload_part_to_cpu("encoder")
+
+    def cache_snapshot():
+        entries = [getattr(module, "_omni_image_conv_weight", None) for module in vae.model.modules()]
+        entries = [entry for entry in entries if entry is not None]
+        return dict(
+            entries=len(entries),
+            bytes=sum(entry[2].numel() * entry[2].element_size() for entry in entries),
+        )
 
     rows, outputs = [], []
     with torch.inference_mode():
@@ -86,8 +108,11 @@ def main():
                     end=end,
                     peak_allocated_bytes=torch.npu.max_memory_allocated(),
                     peak_reserved_bytes=torch.npu.max_memory_reserved(),
+                    weight_cache=cache_snapshot(),
                 )
             )
+            if args.offload:
+                assert rows[-1]["weight_cache"]["entries"] == 0, "derived weights survived encoder offload"
             outputs.append(latents)
         # Hashing, host transfer and I/O are excluded from every timer.
         arrays = []
@@ -132,7 +157,12 @@ def main():
     formal = rows[args.warmup :]
     versions = {name: importlib.metadata.version(name) for name in ["torch", "torch-npu", "vllm", "vllm-omni"]}
     result = dict(
-        scope="resident VAE image encoder, no text/DiT/decoder/MP4/DLO",
+        scope=(
+            "VAE encoder residency lifecycle used by DLO, no DiT or full pipeline"
+            if args.offload
+            else "resident VAE image encoder, no text/DiT/decoder/MP4/DLO"
+        ),
+        offload=args.offload,
         rank=rank,
         world_size=world,
         installed=installed,
