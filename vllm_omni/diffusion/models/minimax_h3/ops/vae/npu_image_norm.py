@@ -4,11 +4,8 @@
 
 from __future__ import annotations
 
-import ast
-import hashlib
-import inspect
 import os
-import textwrap
+import sys
 from collections.abc import Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
@@ -19,47 +16,6 @@ import torch.nn as nn
 
 _IMAGE_ENCODE = ContextVar("h3_npu_image_norm", default=False)
 _ENV = "VLLM_OMNI_H3_NPU_IMAGE_GN_SILU"
-_NORM_SILU_CONTRACT = "d416a2d66d3cddb5fb29f40de73def681c60d4facbf2968686292f8f3afb5020"
-_NORM_CONTRACTS = {
-    "SpatialParallelGroupNorm": "f67585e91435818be8c5726949818ccbaf84de472411ef5e03271004be038c8b",
-    "TemporalIsolatedSpatialParallelGroupNorm": "e1090051af31bb803a16da813ce75634af2243a675d5b4eda7ef0deb3078c347",
-}
-
-
-def _fingerprint(target) -> str:
-    def canonical(node):
-        if isinstance(node, ast.AST):
-            return (
-                type(node).__name__,
-                tuple(
-                    (key, canonical(value)) for key, value in ast.iter_fields(node) if value is not None and value != []
-                ),
-            )
-        if isinstance(node, list):
-            return tuple(canonical(value) for value in node)
-        return node
-
-    source = textwrap.dedent(inspect.getsource(target))
-    return hashlib.sha256(repr(canonical(ast.parse(source))).encode()).hexdigest()
-
-
-def _supported_norm(norm: nn.Module) -> bool:
-    if type(norm) is nn.GroupNorm:
-        return True
-    expected = _NORM_CONTRACTS.get(type(norm).__name__)
-    if expected is None:
-        return False
-    try:
-        actual = _fingerprint(type(norm))
-        if actual != expected:
-            return False
-        # The temporal-isolated subclass delegates to this parent at T=1.
-        if type(norm).__name__ == "TemporalIsolatedSpatialParallelGroupNorm":
-            parent = type(norm).__bases__[0]
-            return _fingerprint(parent) == _NORM_CONTRACTS.get(parent.__name__)
-        return True
-    except (OSError, TypeError, SyntaxError):
-        return False
 
 
 @contextmanager
@@ -107,6 +63,20 @@ def install_npu_image_norm(model: nn.Module, *, device: torch.device) -> int:
     encoder = getattr(model, "encoder", None)
     if device.type != "npu" or os.environ.get(_ENV, "0") != "1" or not isinstance(encoder, nn.Module):
         return 0
+    namespace = vars(sys.modules[type(encoder).__module__])
+    if namespace.get("EncoderFCN3D") is not type(encoder):
+        return 0
+    original = namespace.get("norm_silu")
+    factory = namespace.get("get_group_norm_3d")
+    if not isinstance(original, FunctionType) or not isinstance(factory, FunctionType):
+        return 0
+    # These concrete checkpoint types use ordinary GroupNorm with spatial
+    # parallelism disabled; merging T into N is an identity when T=1.
+    norm_types = (nn.GroupNorm,) + tuple(
+        cls
+        for name in ("SpatialParallelGroupNorm", "TemporalIsolatedSpatialParallelGroupNorm")
+        if isinstance(cls := factory.__globals__.get(name), type) and issubclass(cls, nn.GroupNorm)
+    )
     import torch_npu
 
     fused = getattr(torch_npu, "npu_group_norm_silu", None)
@@ -114,35 +84,28 @@ def install_npu_image_norm(model: nn.Module, *, device: torch.device) -> int:
         return 0
     for norm in encoder.modules():
         if isinstance(norm, nn.GroupNorm):
-            norm._omni_image_norm_supported = _supported_norm(norm)
+            norm._omni_image_norm_supported = type(norm) in norm_types
+
+    def norm_silu(x: torch.Tensor, norm: nn.Module, cond: torch.Tensor | None = None) -> torch.Tensor:
+        if _eligible(x, norm, cond):
+            return fused(x, norm.weight, norm.bias, norm.num_groups, norm.eps)[0]
+        return original(x, norm, cond)
+
     installed = 0
+    block_types = (type(encoder), namespace.get("ResnetBlock3D"))
     for module in encoder.modules():
         if getattr(module, "_omni_image_norm_installed", False):
             installed += 1
             continue
         # These are the two official CNN call sites. Preserve their complete
         # forward body, including checkpointing, residual and downsample order.
-        if type(module).__name__ not in ("ResnetBlock3D", "EncoderFCN3D"):
+        if type(module) not in block_types:
             continue
         forward = type(module).forward
         if not isinstance(forward, FunctionType) or forward.__closure__ or "forward" in module.__dict__:
             continue
-        original = forward.__globals__.get("norm_silu")
-        if not isinstance(original, FunctionType):
+        if forward.__globals__.get("norm_silu") is not original:
             continue
-        try:
-            signature = _fingerprint(original)
-        except (OSError, TypeError, SyntaxError):
-            continue
-        if signature != _NORM_SILU_CONTRACT:
-            continue
-
-        def norm_silu(
-            x: torch.Tensor, norm: nn.Module, cond: torch.Tensor | None = None, _original: FunctionType = original
-        ) -> torch.Tensor:
-            if _eligible(x, norm, cond):
-                return fused(x, norm.weight, norm.bias, norm.num_groups, norm.eps)[0]
-            return _original(x, norm, cond)
 
         namespace = dict(forward.__globals__, norm_silu=norm_silu)
         private_forward = FunctionType(forward.__code__, namespace, forward.__name__, forward.__defaults__)

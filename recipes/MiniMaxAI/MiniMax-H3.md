@@ -40,8 +40,11 @@ of temporal-convolution optimizations. Set the variable to `0` and restart
 to disable it. The decoder and video input path are unchanged.
 
 The fused path requires inference-only, contiguous FP32 NPU tensors with
-one frame, affine GroupNorm, no conditioning, and the validated checkpoint
-normalization implementation. Training, compilation, multi-frame or
+one frame, affine GroupNorm, no conditioning, and the concrete normalization
+types from the loaded H3 `EncoderFCN3D` package. The adapter follows that
+checkpoint's `SiLU(norm(x))` API, including temporal-isolated GroupNorm at T=1;
+it does not pin a source hash or support arbitrary same-named classes.
+Training, compilation, multi-frame or
 noncontiguous inputs, spatial-parallel normalization, normalization hooks,
 custom forwards, unknown remote code, and a missing fused API use the
 original implementation. A checkpoint configured to use its separate

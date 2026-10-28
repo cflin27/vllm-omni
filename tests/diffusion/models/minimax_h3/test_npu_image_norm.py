@@ -34,15 +34,6 @@ def test_default_off_and_non_npu(monkeypatch):
     assert not hasattr(model.encoder, "_omni_image_norm_supported")
 
 
-def test_unknown_group_norm_subclass_falls_back():
-    class DifferentNorm(nn.GroupNorm):
-        def forward(self, x):
-            return super().forward(x) + 1
-
-    assert ops._supported_norm(nn.GroupNorm(4, 8))
-    assert not ops._supported_norm(DifferentNorm(4, 8))
-
-
 def test_scope_and_cpu_fallback():
     x = torch.randn(1, 8, 1, 3, 5)
     norm = nn.GroupNorm(4, 8).eval()
@@ -71,6 +62,14 @@ class ResnetBlock3D(nn.Module):
         return norm_silu(x, self.norm) + x
 
 
+class EncoderFCN3D(ResnetBlock3D):
+    pass
+
+
+def get_group_norm_3d():
+    return nn.GroupNorm
+
+
 def test_private_dispatch_keeps_decoder_and_other_instances_unchanged(monkeypatch):
     calls = []
 
@@ -83,7 +82,7 @@ def test_private_dispatch_keeps_decoder_and_other_instances_unchanged(monkeypatc
     monkeypatch.setitem(sys.modules, "torch_npu", backend)
     monkeypatch.setenv(ops._ENV, "1")
     model = nn.Module()
-    model.encoder = ResnetBlock3D().eval()
+    model.encoder = EncoderFCN3D().eval()
     model.decoder = ResnetBlock3D().eval()
     other = ResnetBlock3D().eval()
     global_helper = ResnetBlock3D.forward.__globals__["norm_silu"]
@@ -105,3 +104,22 @@ def test_private_dispatch_keeps_decoder_and_other_instances_unchanged(monkeypatc
     model.decoder(x)
     other(x)
     assert len(calls) == 1
+
+
+def test_unknown_encoder_and_norm_subclasses_keep_original_forward(monkeypatch):
+    monkeypatch.setenv(ops._ENV, "1")
+    # Class-name equality is insufficient: it must be the checkpoint's type.
+    impostor = type("EncoderFCN3D", (EncoderFCN3D,), {})
+    model = nn.Module()
+    model.encoder = impostor().eval()
+    assert ops.install_npu_image_norm(model, device=Device()) == 0
+    assert "forward" not in model.encoder.__dict__
+
+    backend = ModuleType("torch_npu")
+    monkeypatch.setattr(backend, "npu_group_norm_silu", lambda *_: (), raising=False)
+    monkeypatch.setitem(sys.modules, "torch_npu", backend)
+    model.encoder = EncoderFCN3D().eval()
+    other_norm = type("SpatialParallelGroupNorm", (nn.GroupNorm,), {})
+    model.encoder.norm = other_norm(4, 8).eval()
+    assert ops.install_npu_image_norm(model, device=Device()) == 1
+    assert not model.encoder.norm._omni_image_norm_supported
