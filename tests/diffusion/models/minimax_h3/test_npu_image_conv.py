@@ -54,6 +54,16 @@ def test_unsupported_conv_contract():
     assert not ops._supported_module(nn.Conv3d(4, 8, 3, padding=1))
 
 
+def test_checkpoint_type_identity_rejects_same_name_subclass():
+    class SpatialParallelConv3d(nn.Conv3d):
+        pass
+
+    impostor = type("SpatialParallelConv3d", (SpatialParallelConv3d,), {})
+    assert ops._supported_module(SpatialParallelConv3d(4, 8, 3), SpatialParallelConv3d)
+    assert not ops._supported_module(impostor(4, 8, 3), SpatialParallelConv3d)
+    assert not ops._supported_module(SpatialParallelConv3d(4, 8, 3))
+
+
 @pytest.mark.parametrize("padding_mode", ["reflect", "replicate", "circular"])
 def test_nonzero_padding_mode_keeps_original_forward(monkeypatch, padding_mode):
     model = nn.Module()
@@ -110,7 +120,7 @@ def _cached_model(monkeypatch):
     monkeypatch.setenv(ops._CACHE_ENV, "1")
     # CPU tests isolate cache semantics; the remote-code allowlist and NPU
     # numerical dispatch are validated separately against real checkpoint code.
-    monkeypatch.setattr(ops, "_supported_module", lambda _: True)
+    monkeypatch.setattr(ops, "_supported_module", lambda *_: True)
     assert ops.install_npu_image_conv(model, device=Device()) == 1
     return model
 

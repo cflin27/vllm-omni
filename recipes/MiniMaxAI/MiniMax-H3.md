@@ -39,10 +39,14 @@ disabled by default. Causal convolutions with a single input frame use only
 the last temporal weight slice; the backend remains Conv3D and the current
 HF32 setting is preserved. This removes multiplication by padded zero frames.
 
-The optimization applies to inference-only FP32 NPU inputs with the validated
-checkpoint convolution implementation and temporal kernel size 1 or 3.
+The optimization applies to inference-only FP32 NPU inputs with H3's
+`SpatialParallelConv3d` and temporal kernel size 1 or 3, or an unpadded
+`torch.nn.Conv3d` with temporal kernel size 1. The H3 class must be the exact
+convolution type imported by the loaded `EncoderFCN3D`, using causal constant
+temporal padding. This follows the published H3 checkpoint API rather than
+pinning its source hash; arbitrary same-named classes and subclasses are unsupported.
 Multi-frame video input, training, compilation, spatial-parallel convolution,
-and unknown remote-code implementations retain their original forward path.
+and other convolution classes retain their original forward path.
 The decoder is unchanged. Set the variable to `0` and restart to disable it.
 This flag does not change the transformer's quantization or offload settings.
 
