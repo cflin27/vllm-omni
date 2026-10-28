@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM-Omni project
 
+from contextlib import nullcontext
+
 import pytest
 import torch
 from torch import nn
@@ -144,3 +146,54 @@ def test_native_vae_passes_host_pinning_to_stager(monkeypatch, mocker, pin_memor
     cls = native_vae.MiniMaxH3VideoVAE if modality == "video" else native_vae.MiniMaxH3AudioVAE
     cls("/fake", device=torch.device("cuda:0"), load_device=torch.device("cpu"), pin_memory=pin_memory)
     stager.assert_called_once_with(remote, torch.device("cuda:0"), pin_memory=pin_memory)
+
+
+@pytest.mark.parametrize("owner", [False, True])
+@pytest.mark.parametrize("dtype", [torch.uint8, torch.float32])
+def test_video_reply_materialization(native_decoders, monkeypatch, mocker, owner, dtype):
+    """Non-reply ranks must still decode every latent, without preparing frames."""
+    pipeline = decoder.MiniMaxH3VideoDecoderPipeline(od_config=_config(False))
+    pipeline.device = torch.device("cpu")
+    monkeypatch.setattr(pipeline, "_is_output_owner_rank", lambda: owner)
+    monkeypatch.setattr(pipeline, "_component_on_device", lambda _: nullcontext())
+    monkeypatch.setattr(decoder.current_omni_platform, "create_autocast_context", lambda **kw: nullcontext())
+    monkeypatch.setattr(pipeline, "_release_stage_cache", lambda: None)
+    # Temporal-major native output is noncontiguous in B,C,T,H,W; cropping
+    # also leaves row padding. The reply must preserve the original output.
+    frames = torch.arange(120).reshape(1, 2, 3, 4, 5).to(dtype)
+    if dtype == torch.float32:
+        frames.div_(119)
+    decoded = frames.transpose(1, 2)
+    decode = mocker.Mock(side_effect=lambda _: decoded.clone())
+    pipeline.video_vae.decode_latent = decode
+    prepare = mocker.spy(decoder, "_prepare_minimax_h3_video_output")
+    transfer = mocker.Mock(side_effect=lambda value: value)
+    monkeypatch.setattr(pipeline, "_offload_model_cpu_stage_output", transfer)
+    request = mocker.Mock(
+        prompts=[
+            {
+                "additional_information": {
+                    "minimax_h3_decode": {
+                        "video_latents": [torch.zeros(1), torch.ones(1)],
+                        "height": 3,
+                        "width": 4,
+                    }
+                }
+            }
+        ]
+    )
+    result = pipeline.forward(request)
+    assert decode.call_count == 2
+    if owner:
+        expected = decoded[..., :3, :4].float().clamp(0, 1).mul(255).round().to(torch.uint8)
+        if dtype == torch.uint8:
+            expected = decoded[..., :3, :4]
+        expected = expected.permute(0, 2, 3, 4, 1).contiguous()
+        assert torch.equal(result.output, torch.cat([expected, expected]))
+        assert result.output.is_contiguous()
+        assert prepare.call_count == transfer.call_count == 2
+    else:
+        assert result.output is None
+        assert result.post_process_func is None
+        prepare.assert_not_called()
+        transfer.assert_not_called()

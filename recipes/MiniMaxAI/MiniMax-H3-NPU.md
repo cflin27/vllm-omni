@@ -643,6 +643,10 @@ collective validation on the target hardware; accepting a layout is not a
 performance or compatibility guarantee. Tile geometry and numerical algorithms
 are unchanged by this feature.
 
+All video ranks participate in the native tiled decode and its collectives.
+Only the output rank crops and quantizes the full video into the transfer
+layout; other ranks discard their decoded frames after the codec returns.
+
 This initial path accepts one complete request at a time; overlapping requests
 receive HTTP 429. It does not implement cross-request pipelining. Latents use
 CPU serialization through `SharedMemoryConnector`, with separate keys for each

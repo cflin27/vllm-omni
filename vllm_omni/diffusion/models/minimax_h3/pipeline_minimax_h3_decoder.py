@@ -281,6 +281,12 @@ class _MiniMaxH3ModalityDecoderPipeline(MiniMaxH3DecoderPipeline):
                         enabled=True,
                     ):
                         value = self.video_vae.decode_latent(latent)
+                # All ranks participate in tiled decode, but only the reply
+                # rank needs the full video in transfer layout.
+                if not self._is_output_owner_rank():
+                    del value, latent
+                    self._release_stage_cache()
+                    continue
                 value = value[..., : int(payload["height"]), : int(payload["width"])].contiguous()
                 value = self._offload_model_cpu_stage_output(_prepare_minimax_h3_video_output(value))
             else:
@@ -290,6 +296,8 @@ class _MiniMaxH3ModalityDecoderPipeline(MiniMaxH3DecoderPipeline):
             values.append(value)
             del latent
             self._release_stage_cache()
+        if not values:
+            return DiffusionOutput(output=None)
         value = values[0] if len(values) == 1 else torch.cat(values, dim=0)
         return DiffusionOutput(
             output=value,
