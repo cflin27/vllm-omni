@@ -1,0 +1,80 @@
+{
+  "base": {
+    "source": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+    "requests": [
+      {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 62855.161901097745,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-1",
+        "status": 200,
+        "wall_ms": 8823.887339094654,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-2",
+        "status": 200,
+        "wall_ms": 8709.17763095349,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-3",
+        "status": 200,
+        "wall_ms": 8609.043542062864,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      }
+    ],
+    "mean_wall_ms": 8714.03617070367
+  },
+  "candidate": {
+    "source": "a801490a57a50f0d047b2dcf29581ee0d50811f2",
+    "requests": [
+      {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 64932.744938880205,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-1",
+        "status": 200,
+        "wall_ms": 8422.260127030313,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-2",
+        "status": 200,
+        "wall_ms": 8299.340026220307,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      },
+      {
+        "label": "measure-3",
+        "status": 200,
+        "wall_ms": 8403.101520845667,
+        "bytes": 4618803,
+        "sha256": "ffd4c583a31d456ad4a39e7f3705ebaf97eb21f4bbc26dae6132bb5b87572a64",
+        "decode_rc": 0
+      }
+    ],
+    "mean_wall_ms": 8374.900558032095
+  },
+  "all_eight_mp4_exact": true,
+  "scope": "Public-image deterministic 1-NFE HTTP correctness; timings are observations, not formal production latency"
+}

@@ -1,0 +1,8 @@
+{
+  "repository": "MiniMaxAI/MiniMax-H3",
+  "revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+  "vae_weights_sha256": "5f0c2e161d895a9fee7645ca32d4a7e3a22b90cacfcbeba62ec999cdbbefe0d3",
+  "bytes": 10415548320,
+  "path_within_public_model": "Ref2VA/video_vae/source/model.safetensors",
+  "verified_against_download_lfs_hash": true
+}

@@ -1,0 +1,11 @@
+--- a/vllm_ascend/worker/v2/attn_utils.py
++++ b/vllm_ascend/worker/v2/attn_utils.py
+@@ -131,7 +131,7 @@
+ if TYPE_CHECKING:
+     from vllm_ascend.worker.v2.pcp_manager import AscendPCPAttentionContext
+ 
+-if vllm_version_is("0.32.0"):
++if vllm_version_is("0.32.0") or vllm_version_is("0.33.0"):
+     import vllm.models.qwen4_exp.common.qsa_cache as qsa_cache  # type: ignore[import-not-found]
+ 
+     QSAMetadataBuilder = qsa_cache.QSAMetadataBuilder

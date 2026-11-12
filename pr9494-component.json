@@ -1,0 +1,285 @@
+{
+  "scope": "real _encode_local_media public six-image component; not E2E",
+  "base": {
+    "boundary": "pipeline._encode_local_media including load/encode/offload",
+    "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+    "public_model_revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post7",
+    "device": "Ascend910B4-1",
+    "warmup_count": 2,
+    "measured_count": 3,
+    "results": [
+      {
+        "trial": 0,
+        "kind": "warmup",
+        "wall_ms": 4152.349509997293,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 1
+        },
+        "peak_allocated_bytes": 10778363392,
+        "outputs": {
+          "trial-0-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 1,
+        "kind": "warmup",
+        "wall_ms": 4151.065494865179,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 1
+        },
+        "peak_allocated_bytes": 10778363392,
+        "outputs": {
+          "trial-1-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 2,
+        "kind": "measure",
+        "wall_ms": 4157.60762989521,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 1
+        },
+        "peak_allocated_bytes": 10778363392,
+        "outputs": {
+          "trial-2-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 3,
+        "kind": "measure",
+        "wall_ms": 4130.518065998331,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 1
+        },
+        "peak_allocated_bytes": 10778363392,
+        "outputs": {
+          "trial-3-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 4,
+        "kind": "measure",
+        "wall_ms": 4145.419717067853,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 1
+        },
+        "peak_allocated_bytes": 10778363392,
+        "outputs": {
+          "trial-4-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      }
+    ],
+    "mean_ms": 4144.515137653798,
+    "stdev_ms": 13.567417439145474
+  },
+  "candidate": {
+    "boundary": "pipeline._encode_local_media including load/encode/offload",
+    "source_commit": "343bec72066afed3cf9ce9d69d8202ae30e69841",
+    "public_model_revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post7",
+    "device": "Ascend910B4-1",
+    "warmup_count": 2,
+    "measured_count": 3,
+    "results": [
+      {
+        "trial": 0,
+        "kind": "warmup",
+        "wall_ms": 2891.592803178355,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 1084004352,
+        "outputs": {
+          "trial-0-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 1,
+        "kind": "warmup",
+        "wall_ms": 2553.2731129787862,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 1084004352,
+        "outputs": {
+          "trial-1-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 2,
+        "kind": "measure",
+        "wall_ms": 2557.6855279505253,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 1084004352,
+        "outputs": {
+          "trial-2-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 3,
+        "kind": "measure",
+        "wall_ms": 2546.102575957775,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 1084004352,
+        "outputs": {
+          "trial-3-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 4,
+        "kind": "measure",
+        "wall_ms": 2547.646931838244,
+        "optimized_conv_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 1084004352,
+        "outputs": {
+          "trial-4-image-0.npy": {
+            "shape": [
+              2340,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "802518e733ba8f015e3b3c30c5096c6f6f189c170df07cf28a250222b99c773d",
+            "finite": true
+          }
+        }
+      }
+    ],
+    "mean_ms": 2550.478345248848,
+    "stdev_ms": 6.289186802989708
+  },
+  "parity": [
+    {
+      "file": "trial-0-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-1-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-2-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-3-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-4-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    }
+  ],
+  "improvement_percent": 38.461357709199504,
+  "speedup": 1.624995227022569
+}

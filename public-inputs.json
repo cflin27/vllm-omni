@@ -1,0 +1,21 @@
+{
+  "source": "Public Omni Ref2VA input video",
+  "video_sha256": "d6edc20ac82aa980c9cbd0b05b371f60d12dc8d018492e571b42de0086819c41",
+  "frame_ordinals": [
+    0,
+    24,
+    48,
+    72,
+    96,
+    120
+  ],
+  "resize": "832x480 lanczos, performance input only",
+  "files": {
+    "public-ref-01.png": "6708e91eddf58dc2d23a80be4399c36b651f05c85570b075c2a9063af99f4b4c",
+    "public-ref-02.png": "90895a06c13511b33d27d87527007a262b8e9c80b9642c517e61d3f17907a5ff",
+    "public-ref-03.png": "f98783f12ffe4034756776cc8e98a8fcf8ffe4a12e4515627de7acad7f2282eb",
+    "public-ref-04.png": "0b31ed8acebd158203f7c2143a6587f8c28a9e19454a57eb3f52aecb27b784a5",
+    "public-ref-05.png": "b0240311bb4ab2a90da1457f73d39cd1fae6d511b277d2ac6a85e9b975fd61d1",
+    "public-ref-06.png": "41fa96a2c27f261540fb6ee38557abc35e7d1d2a46d8971e0015fc01756f0b57"
+  }
+}

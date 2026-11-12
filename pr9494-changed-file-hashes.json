@@ -1,0 +1,4 @@
+{
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_split_residency.py": "cde16d67103bf260586feee50ad1df6b04616c0890b22044a01308bd37ce9ea6",
+  "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py": "a35739e2ea05a2ecef6cca7f514dda0625dc1c9795fe7f0dbfa4a8caa5a17426"
+}

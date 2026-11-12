@@ -1,0 +1,6 @@
+{
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_dlo_lifecycle.py": "49a9f2667330c5de1e8174c3825735978e3101f67c4a05ca705ad0e75154708b",
+  "tests/diffusion/models/minimax_h3/test_npu_image_conv.py": "04326aa77a6c8a4337c4f6081ccd5320f94dff5fca6e0c0ebf8c61861ce01eea",
+  "vllm_omni/diffusion/models/minimax_h3/ops/vae/npu_image_conv.py": "da1a9a57c7572160b8548581251f4289322eba5f8f3ebe7eafba3660c4c127c2",
+  "vllm_omni/diffusion/models/minimax_h3/vae.py": "5ad583de42d0e90c4944712f400b32e24648b5e0666cab19fd5f3d4cf6265a5a"
+}
