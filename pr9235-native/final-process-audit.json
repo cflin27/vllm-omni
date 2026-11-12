@@ -1,0 +1,34 @@
+[
+  {
+    "phase": "performance",
+    "arm": "base",
+    "tracked_or_logged_pids": 26,
+    "active_matching_pids": [],
+    "starttime_snapshot_available": 1,
+    "resource_tracker_warning": true
+  },
+  {
+    "phase": "performance",
+    "arm": "candidate",
+    "tracked_or_logged_pids": 30,
+    "active_matching_pids": [],
+    "starttime_snapshot_available": 30,
+    "resource_tracker_warning": false
+  },
+  {
+    "phase": "precision",
+    "arm": "base",
+    "tracked_or_logged_pids": 179,
+    "active_matching_pids": [],
+    "starttime_snapshot_available": 179,
+    "resource_tracker_warning": true
+  },
+  {
+    "phase": "precision",
+    "arm": "candidate",
+    "tracked_or_logged_pids": 48,
+    "active_matching_pids": [],
+    "starttime_snapshot_available": 48,
+    "resource_tracker_warning": false
+  }
+]

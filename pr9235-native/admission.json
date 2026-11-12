@@ -1,0 +1,107 @@
+{
+  "gate-precision.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate-after-probe.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate-after-performance.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate-after-precision.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate-reserved.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  },
+  "gate-performance.json": {
+    "devices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "holders": {},
+    "status": "free",
+    "pending_model_initializers": {}
+  }
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "file": "performance/base/measure-1.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4603715"
+    }
+  },
+  {
+    "file": "performance/base/measure-2.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4596324"
+    }
+  },
+  {
+    "file": "performance/base/measure-3.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4583941"
+    }
+  },
+  {
+    "file": "performance/base/warmup.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4573915"
+    }
+  },
+  {
+    "file": "performance/candidate/measure-1.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4618724"
+    }
+  },
+  {
+    "file": "performance/candidate/measure-2.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4636949"
+    }
+  },
+  {
+    "file": "performance/candidate/measure-3.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4632181"
+    }
+  },
+  {
+    "file": "performance/candidate/warmup.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4618169"
+    }
+  },
+  {
+    "file": "precision/base/measure-1.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4605393"
+    }
+  },
+  {
+    "file": "precision/base/warmup.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4617305"
+    }
+  },
+  {
+    "file": "precision/candidate/measure-1.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4605393"
+    }
+  },
+  {
+    "file": "precision/candidate/warmup.mp4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 832,
+        "height": 480,
+        "r_frame_rate": "24/1",
+        "duration": "5.166667",
+        "nb_read_frames": "124"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "5.175000",
+        "nb_read_frames": "162"
+      }
+    ],
+    "format": {
+      "duration": "5.175000",
+      "size": "4617305"
+    }
+  }
+]

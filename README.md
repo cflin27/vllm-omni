@@ -57,6 +57,15 @@ Use `ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7`, `OMNI_SOURCE_ROOT` and `PYTHONP
 
 AI assistance: TRAE assisted the code, harness, validation and analysis.
 
+## PR9235 native serial/parallel stages
+
+The current native staged comparison and portable reproduction are in
+[pr9235-native](pr9235-native/README.md): same eight-device pool, 1-NFE HTTP
+mean 10027.756→7039.348 ms (29.801% lower), independent paired precision
+MP4/RGB/PCM exact 1/1 (2/2 including warmup), normal native shutdowns.
+Warmup and measured outputs differ within both arms, equally; this is retained
+separately from base/candidate parity. Full 50-NFE quality and profile were not run.
+
 ## PR9468 GroupNorm/SiLU public image/video comparison
 
 Candidate: `9323191e5305d66ef57ca73b049a65c5917756bb`, same main baseline,

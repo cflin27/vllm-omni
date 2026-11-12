@@ -1,0 +1,162 @@
+{
+  "performance": {
+    "base": {
+      "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+      "requests": [
+        {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 10348.99155702442,
+          "bytes": 4603715,
+          "sha256": "91ac4a0b07437c1a1d56f5d66d1d699df28301322e1eaa08583a254485274860",
+          "decode_rc": 0
+        },
+        {
+          "label": "measure-2",
+          "status": 200,
+          "wall_ms": 9816.270154900849,
+          "bytes": 4596324,
+          "sha256": "a1bc95c8d04ba472df46eba092a4a9a7d84b4a6beafd4a564491de904d5c3934",
+          "decode_rc": 0
+        },
+        {
+          "label": "measure-3",
+          "status": 200,
+          "wall_ms": 9918.00687997602,
+          "bytes": 4583941,
+          "sha256": "f9ef63aa30ae2c5f83e44d2cc53b24ab01abc86399479acb8e7a106b9a058691",
+          "decode_rc": 0
+        }
+      ],
+      "warmup": {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 60892.87343691103,
+        "bytes": 4573915,
+        "sha256": "cbf94a70f45f08d1914d587201667b73e32746517a987afdf46a478826155652",
+        "decode_rc": 0
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      },
+      "mean_ms": 10027.756197300429,
+      "stdev_ms": 282.8103738550024
+    },
+    "candidate": {
+      "source_commit": "508b2596d6c5b9b23e757a7937e3b6fb89ab384a",
+      "requests": [
+        {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 6970.830691047013,
+          "bytes": 4618724,
+          "sha256": "30c1fa6b89064d03f5118674538c05774a5e80873a7befc5cf74d715d2295d13",
+          "decode_rc": 0
+        },
+        {
+          "label": "measure-2",
+          "status": 200,
+          "wall_ms": 7155.690259067342,
+          "bytes": 4636949,
+          "sha256": "2cb56498f6a7e1f4ecca86a757ff793c80993e8f49c52b168625b659b4aa23ab",
+          "decode_rc": 0
+        },
+        {
+          "label": "measure-3",
+          "status": 200,
+          "wall_ms": 6991.524358978495,
+          "bytes": 4632181,
+          "sha256": "93eb4e63e3b2b371395318e87e68059ecb4001282acc1635faa8644dbec48129",
+          "decode_rc": 0
+        }
+      ],
+      "warmup": {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 48911.94832092151,
+        "bytes": 4618169,
+        "sha256": "f42897ad65eb8d10850e91e60c1e286211a443988f0c9d8e386a9f44818cb15c",
+        "decode_rc": 0
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      },
+      "mean_ms": 7039.348436364283,
+      "stdev_ms": 101.28485452187331
+    },
+    "latency_reduction_percent": 29.801360365548724
+  },
+  "precision": {
+    "base": {
+      "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+      "requests": [
+        {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 11442.846161080524,
+          "bytes": 4605393,
+          "sha256": "b76d07d66debe9f0512396e745fe780dcca63d9382a8ea1011f48e1939539778",
+          "decode_rc": 0
+        }
+      ],
+      "warmup": {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 63601.66997695342,
+        "bytes": 4617305,
+        "sha256": "ae3f135b7c3c10e367522e7e39291ab009905f3e545fa7b66f1e93f26863229d",
+        "decode_rc": 0
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      }
+    },
+    "candidate": {
+      "source_commit": "508b2596d6c5b9b23e757a7937e3b6fb89ab384a",
+      "requests": [
+        {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 7201.430112123489,
+          "bytes": 4605393,
+          "sha256": "b76d07d66debe9f0512396e745fe780dcca63d9382a8ea1011f48e1939539778",
+          "decode_rc": 0
+        }
+      ],
+      "warmup": {
+        "label": "warmup",
+        "status": 200,
+        "wall_ms": 51722.6747260429,
+        "bytes": 4617305,
+        "sha256": "ae3f135b7c3c10e367522e7e39291ab009905f3e545fa7b66f1e93f26863229d",
+        "decode_rc": 0
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      }
+    },
+    "mp4_exact": false,
+    "all_requests_same_mp4": false,
+    "paired_exact_count": 2,
+    "paired_count": 2,
+    "paired_mp4_exact": true,
+    "measured_exact_count": 1,
+    "self_repeat_exact": {
+      "base": false,
+      "candidate": false
+    }
+  },
+  "all_native_shutdowns": true
+}
