@@ -88,3 +88,42 @@ for images. The inherited result boundary label originally mentioned six
 images for both branches; the video JSON records the original label and its
 correction based on the actual video branch. Actual output shapes are retained;
 raw39frames should not be interpreted as39untrimmed encoded frames.
+
+## PR10167 public cross-clip encoder tile comparison
+
+Candidate `bc70adc05` on the same pinned public main,model revision and runtime.
+Eight native NPU tile ranks; encoder-only loading,FP32,expandable segments ON,
+deterministic algorithms OFF. The public39-frame array above is looped to
+39/156/312rawframes at832×480. These inputs test scheduling/window lengths;
+they do not validate natural long-video quality or input-content diversity.
+
+Two warmups and three unprofiled requests per length/arm,independent processes,
+identical request order. Each sample is the8-rank maximum wall time,then the
+arithmetic mean of three; the timer includes encoder load,frame preparation,
+encode,CPU latent processing,offload and synchronization. No profiler or E2E
+claim. All pre/post physical/pending-initializer checks passed.
+
+| Raw frames | Base ms | Candidate ms | Reduction | Per-rank forwards,before → after |
+| --- | --- | --- | --- | --- |
+| 39 | 1831.271 | 1610.962 | 12.03% | 6/6/6/6/3/3/3/3 → 5/5/5/5/4/4/4/4 |
+| 156 | 4408.921 | 3496.448 | 20.70% | 18/18/18/18/9/9/9/9 → 14/14/14/14/13/13/13/13 |
+| 312 | 8676.279 | 6836.269 | 21.21% | 38/38/38/38/19/19/19/19 → 29/29/29/29/28/28/28/28 |
+
+15/15exported latent arrays compare exactly,maximum absolute difference0;
+all8rank hashes match within/across arms on every request,all arrays finite.
+Output latent shapes are12/42/92 ×30×52,as recorded by the actual encoder.
+The312-frame case spans more than one task window; normalization/padding and
+raw input length should not be confused with the model's actual encoded length.
+
+Use the frozen `validate_video_tiles.py` and source wrapper. In the same isolated
+NPU runtime for each checkout,run:
+
+```bash
+python "$PUBLIC_RUN_ROOT/pr_python.py" -m torch.distributed.run --nproc-per-node 8 --master-port 19768 "$PUBLIC_RUN_ROOT/pr_python.py" "$PUBLIC_RUN_ROOT/validate_video_tiles.py" --model "$PUBLIC_MODEL/Ref2VA/video_vae" --public-frames "$PUBLIC_RUN_ROOT/public-video-39.npy" --output "$NEW_OUTPUT/tiles-base" --lengths 39 156 312 --warmup 2 --repeat 3
+# Same command against PR10167,with a new output directory and --max-tasks 168.
+```
+
+Set `ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7`,selected `OMNI_SOURCE_ROOT`,
+matching `PYTHONPATH`,and`PYTORCH_NPU_ALLOC_CONF=expandable_segments:True`.
+The recorded arm group was physical8–15. Do not reuse an existing output path.
+The result JSON preserves each rank/request,raw-input hash and branch counts.

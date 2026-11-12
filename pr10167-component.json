@@ -1,0 +1,5631 @@
+{
+  "results": [
+    {
+      "frames": 39,
+      "base": {
+        "rank_max_samples_ms": [
+          1795.5044240225106,
+          1849.262140924111,
+          1849.0469949319959
+        ],
+        "mean_ms": 1831.271186626206,
+        "rank_calls": [
+          6,
+          6,
+          6,
+          6,
+          3,
+          3,
+          3,
+          3
+        ],
+        "latent_shape": [
+          12,
+          30,
+          52
+        ]
+      },
+      "candidate": {
+        "rank_max_samples_ms": [
+          1605.3398568183184,
+          1596.0901819635183,
+          1631.4558999147266
+        ],
+        "mean_ms": 1610.961979565521,
+        "rank_calls": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4
+        ],
+        "latent_shape": [
+          12,
+          30,
+          52
+        ]
+      },
+      "parity": [
+        {
+          "trial": 0,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 1,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 2,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 3,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 4,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        }
+      ],
+      "improvement_percent": 12.030397718787123
+    },
+    {
+      "frames": 156,
+      "base": {
+        "rank_max_samples_ms": [
+          4385.899737942964,
+          4400.6784479133785,
+          4440.1834099553525
+        ],
+        "mean_ms": 4408.920531937231,
+        "rank_calls": [
+          18,
+          18,
+          18,
+          18,
+          9,
+          9,
+          9,
+          9
+        ],
+        "latent_shape": [
+          42,
+          30,
+          52
+        ]
+      },
+      "candidate": {
+        "rank_max_samples_ms": [
+          3497.0828341320157,
+          3498.9925790578127,
+          3493.2681070640683
+        ],
+        "mean_ms": 3496.4478400846324,
+        "rank_calls": [
+          14,
+          14,
+          14,
+          14,
+          13,
+          13,
+          13,
+          13
+        ],
+        "latent_shape": [
+          42,
+          30,
+          52
+        ]
+      },
+      "parity": [
+        {
+          "trial": 0,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 1,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 2,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 3,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 4,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        }
+      ],
+      "improvement_percent": 20.696056670626096
+    },
+    {
+      "frames": 312,
+      "base": {
+        "rank_max_samples_ms": [
+          8671.360425883904,
+          8670.236435951665,
+          8687.241189181805
+        ],
+        "mean_ms": 8676.279350339124,
+        "rank_calls": [
+          38,
+          38,
+          38,
+          38,
+          19,
+          19,
+          19,
+          19
+        ],
+        "latent_shape": [
+          92,
+          30,
+          52
+        ]
+      },
+      "candidate": {
+        "rank_max_samples_ms": [
+          6870.8613000344485,
+          6811.934984987602,
+          6826.01220603101
+        ],
+        "mean_ms": 6836.269497017686,
+        "rank_calls": [
+          29,
+          29,
+          29,
+          29,
+          28,
+          28,
+          28,
+          28
+        ],
+        "latent_shape": [
+          92,
+          30,
+          52
+        ]
+      },
+      "parity": [
+        {
+          "trial": 0,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 1,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 2,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 3,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        },
+        {
+          "trial": 4,
+          "exact": true,
+          "max_abs": 0.0,
+          "all_rank_hashes_match": true,
+          "finite": true
+        }
+      ],
+      "improvement_percent": 21.20736065568841
+    }
+  ],
+  "rank_reports": {
+    "base": [
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 0,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2101.9931689370424,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1777.3372309748083,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1795.5044240225106,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1784.38234096393,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1837.3792639467865,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4401.597520103678,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4368.646889925003,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4360.718692885712,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4369.7439229581505,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4422.298935009167,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8670.894593931735,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8688.82427108474,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8658.62865303643,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8638.37625598535,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8680.783282965422,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 1,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2099.1466941777617,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1771.7324129771441,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1795.0555018614978,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1796.274796128273,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1838.2153110578656,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4402.439908822998,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4361.738026840612,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4361.840275814757,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4400.6784479133785,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4395.362172042951,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8673.162860097364,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8688.653687946498,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8649.905485101044,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8670.236435951665,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8675.230806227773,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 2,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2124.0150921512395,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1771.5152229648083,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1774.5247050188482,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1786.4482121076435,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1849.0469949319959,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4421.68259806931,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4362.463789060712,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4362.945889821276,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4389.139982871711,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4426.168590085581,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8688.25642997399,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8704.145530005917,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8657.893409952521,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8656.690432922915,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8654.437232064083,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 3,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2100.0534230843186,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1772.6692291907966,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1785.5568719096482,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1785.7742060441524,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1838.4172560181469,
+            "tile_forward_calls": 6,
+            "peak_allocated_bytes": 4588347392,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4401.32145001553,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4361.287784064189,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4361.946131102741,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4369.055952178314,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4435.734295053408,
+            "tile_forward_calls": 18,
+            "peak_allocated_bytes": 5158037504,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8690.810963045806,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8675.751516129822,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8655.524329980835,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8640.590615104884,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8687.241189181805,
+            "tile_forward_calls": 38,
+            "peak_allocated_bytes": 5920620544,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 4,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2159.47649278678,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1793.1403270922601,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1774.9040329363197,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1803.6273089237511,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1836.4542529452592,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4419.4111281540245,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4385.3182438761,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4368.996143108234,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4399.691215949133,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4435.108450008556,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8677.38845385611,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8675.772579154,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8668.199063045904,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8650.572607060894,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8654.9481600523,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 5,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2108.584858942777,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1771.4878919068724,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1775.745774852112,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1797.3308600485325,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1839.7397929802537,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4450.96082193777,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4362.414536997676,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4385.899737942964,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4368.673064978793,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4440.1834099553525,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8675.2355620265,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8668.766505084932,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8651.047352002934,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8640.752078965306,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8655.29052214697,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 6,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2101.205810206011,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1771.4315250050277,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1784.0614458546042,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1849.262140924111,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1837.9575470462441,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4401.503603206947,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4361.1964280717075,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4363.231546944007,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4369.3053289316595,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4408.7259490042925,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8674.03044598177,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8670.126143842936,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8648.421700112522,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8639.770131092519,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8657.835424877703,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 7,
+        "device": "Ascend910B4-1",
+        "max_tasks": null,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 2134.395844070241,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1780.6077569257468,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1787.2751841787249,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1788.1870199926198,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1837.9414579831064,
+            "tile_forward_calls": 3,
+            "peak_allocated_bytes": 4588101120,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4410.149686038494,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4360.635231947526,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4376.7307861708105,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4388.63511197269,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4427.229308988899,
+            "tile_forward_calls": 9,
+            "peak_allocated_bytes": 5157791232,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 8671.241733012721,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 8670.550144976005,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 8671.360425883904,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 8640.897393925115,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 8656.947686104104,
+            "tile_forward_calls": 19,
+            "peak_allocated_bytes": 5920374272,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      }
+    ],
+    "candidate": [
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 0,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1866.2270088680089,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1578.6666099447757,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1605.3398568183184,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1561.057322891429,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1631.4558999147266,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3601.412469986826,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3487.7681648358703,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3479.525340953842,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3490.8521671313792,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3480.880444869399,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6790.659776888788,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6826.407434884459,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6870.8613000344485,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6778.9490290451795,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 0,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6822.221106151119,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 1,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1880.2040580194443,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1599.6464909985662,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1578.417768003419,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1593.5714698862284,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1620.0979661662132,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3611.8439689744264,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3489.606030052528,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3481.294638942927,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3478.0142260715365,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3476.630811812356,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6793.756097089499,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6792.273727944121,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6815.081858076155,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6797.590290894732,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 1,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6822.4720559082925,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 2,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1868.5570280067623,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1598.9876738749444,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1563.426161184907,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1561.3520659971982,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1594.5390569977462,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3605.3741089999676,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3488.5726650245488,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3481.1090319417417,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3479.16631703265,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3478.1094500795007,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6793.214933015406,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6790.36097205244,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6825.70508797653,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6787.636999040842,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 2,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6826.01220603101,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 3,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1844.5683640893549,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1578.2993261236697,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1592.4809088464826,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1582.6885800343007,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1592.890340834856,
+            "tile_forward_calls": 5,
+            "peak_allocated_bytes": 4586089984,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3599.5408659800887,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3486.932289088145,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3497.0828341320157,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3475.2322169952095,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3475.2669339068234,
+            "tile_forward_calls": 14,
+            "peak_allocated_bytes": 5149007872,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6794.280454982072,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6802.363952854648,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6807.7086659614,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6799.635124159977,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 3,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6783.1605670508,
+            "tile_forward_calls": 29,
+            "peak_allocated_bytes": 5962558976,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 4,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1880.6980662047863,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1586.7325281724334,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1569.57967299968,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1596.0901819635183,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1591.6709441225976,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3600.607478991151,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3486.8333279155195,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3475.062321173027,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3494.8643350508064,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3475.1001079566777,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6788.900797022507,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6785.45727301389,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6803.399151889607,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6811.934984987602,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 4,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6803.702817065641,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 5,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1880.177338141948,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1578.2555600162596,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1563.194854883477,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1559.85185992904,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1591.3829340133816,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3628.774655982852,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3515.779308974743,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3474.9430059455335,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3475.8601309731603,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3489.3377139233053,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6790.432853158563,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6822.725187055767,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6859.049189835787,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6788.363859057426,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 5,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6802.031559869647,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 6,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1896.3598359841853,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1578.8474471773952,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1564.3331271130592,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1577.1560489665717,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1595.4126128926873,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3604.457458946854,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3505.78918796964,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3482.012599008158,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3498.9925790578127,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3474.8944609891623,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6789.7530910559,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6786.807185970247,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6804.225967032835,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6790.1310520246625,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 6,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6785.018119029701,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      },
+      {
+        "source_commit": "bc70adc0509f2b05832389e529b8f8082e88f358",
+        "visible_devices": "8,9,10,11,12,13,14,15",
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "world_size": 8,
+        "rank": 7,
+        "device": "Ascend910B4-1",
+        "max_tasks": 168,
+        "warmup": 2,
+        "repeat": 3,
+        "lengths": [
+          39,
+          156,
+          312
+        ],
+        "scope": "encoder load, public frame prepare/encode, CPU latent processing, offload, sync",
+        "records": [
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 1850.6937911733985,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 1588.7503470294178,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 1563.8318930286914,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 1579.2090380564332,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 39,
+            "input_sha256": "b71f60e3278ed796bb1b723d0cd3772bc209361bb10db3ecb8470fbedf50a406",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 1593.298255931586,
+            "tile_forward_calls": 4,
+            "peak_allocated_bytes": 4585843712,
+            "latent_shape": [
+              12,
+              30,
+              52
+            ],
+            "array_shape": [
+              4680,
+              96
+            ],
+            "finite": true,
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3652.1719319280237,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3507.929575862363,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3477.4126789998263,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3476.2478100601584,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 156,
+            "input_sha256": "bcd27424fe3922af2447afab3fbeb980e23e637f7fe12d08bf42d9e0b070a0be",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3493.2681070640683,
+            "tile_forward_calls": 13,
+            "peak_allocated_bytes": 5148761600,
+            "latent_shape": [
+              42,
+              30,
+              52
+            ],
+            "array_shape": [
+              16380,
+              96
+            ],
+            "finite": true,
+            "sha256": "1de43ecdd79c8e87194305ffbbd2b16ca27dabced4c78a354632b6dc7ffcf6f6"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 6806.343025062233,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 6808.447886025533,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 6805.741497082636,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 6786.489489953965,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          },
+          {
+            "rank": 7,
+            "frames": 312,
+            "input_sha256": "b0b6a6ad6bc7a20c75ddb848f08c3b7b7f14e16ae272164b66ab5a75856244f0",
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 6783.913657069206,
+            "tile_forward_calls": 28,
+            "peak_allocated_bytes": 5962312704,
+            "latent_shape": [
+              92,
+              30,
+              52
+            ],
+            "array_shape": [
+              35880,
+              96
+            ],
+            "finite": true,
+            "sha256": "3c4654c96f4660ad6e2e53e7df6ca81a2e3bf88a86ddd7f6446595dfbdf0236a"
+          }
+        ]
+      }
+    ]
+  }
+}

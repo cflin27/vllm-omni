@@ -1,0 +1,9 @@
+{
+  "recipes/MiniMaxAI/MiniMax-H3-NPU.md": "63c55010ee1f4d79c7f5c377acef035cdbcc8de8e767d309852a86a4f9c0c40b",
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_tile_balance.py": "df5f8c91c97735e2f106288146e90ea433e274429f9c9667d4146d26a8de2083",
+  "tests/model_executor/models/test_minimax_h3_encoder_payload.py": "fb665bef34dd282390d6ae6afa0dedba0a916bb1c45993920325e4da0fc71da0",
+  "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py": "2047edefcbf1889d5e6fe1ce152176400d5d6137cc1db78e7420cd031eb484b8",
+  "vllm_omni/diffusion/models/minimax_h3/vae.py": "86703bf5fad4d4ad5081c25cba7cdcc8196dfb147a378ef240ce9bea9367ddaa",
+  "vllm_omni/diffusion/models/minimax_h3/vae_tile_balance.py": "132771f08ae8f9e361c22e4dab4191b317297a4c6daf76a4c2b2fe08222b1a32",
+  "vllm_omni/model_executor/models/minimax_h3/encoder.py": "f9e256d7335ae58760b013c5e558a08f70d1e3b5adde22dac65dc75f03fc55b8"
+}
