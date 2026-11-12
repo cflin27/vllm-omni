@@ -1,0 +1,301 @@
+{
+  "base": {
+    "boundary": "encoder load, public39-frame video encode/CPUlatent processing,offload,synchronize",
+    "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+    "visible_devices": "0,1,2,3,4,5,6,7",
+    "input_kind": "video-39",
+    "public_model_revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post7",
+    "device": "Ascend910B4-1",
+    "warmup_count": 2,
+    "measured_count": 3,
+    "results": [
+      {
+        "trial": 0,
+        "kind": "warmup",
+        "wall_ms": 8276.523740962148,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-0-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 1,
+        "kind": "warmup",
+        "wall_ms": 7968.107708962634,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-1-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 2,
+        "kind": "measure",
+        "wall_ms": 7978.60169201158,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-2-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 3,
+        "kind": "measure",
+        "wall_ms": 7967.657064087689,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-3-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 4,
+        "kind": "measure",
+        "wall_ms": 7980.889586964622,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 0,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-4-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      }
+    ],
+    "mean_ms": 7975.71611435463,
+    "stdev_ms": 7.072470164861434,
+    "recorded_boundary_label": "encoder load -> six image encodes -> encoder offload -> device synchronize",
+    "metadata_note": "Corrected inherited six-image label; actual --video-array branch is preserved in frozen harness and input_kind."
+  },
+  "candidate": {
+    "boundary": "encoder load, public39-frame video encode/CPUlatent processing,offload,synchronize",
+    "source_commit": "9323191e5305d66ef57ca73b049a65c5917756bb",
+    "visible_devices": "0,1,2,3,4,5,6,7",
+    "input_kind": "video-39",
+    "public_model_revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post7",
+    "device": "Ascend910B4-1",
+    "warmup_count": 2,
+    "measured_count": 3,
+    "results": [
+      {
+        "trial": 0,
+        "kind": "warmup",
+        "wall_ms": 8170.296100899577,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 900,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-0-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 1,
+        "kind": "warmup",
+        "wall_ms": 7910.1859028451145,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 900,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-1-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 2,
+        "kind": "measure",
+        "wall_ms": 7913.954422809184,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 900,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-2-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 3,
+        "kind": "measure",
+        "wall_ms": 7926.698851166293,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 900,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-3-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      },
+      {
+        "trial": 4,
+        "kind": "measure",
+        "wall_ms": 7934.501242125407,
+        "optimized_conv_calls": 0,
+        "fused_gn_silu_calls": 900,
+        "stager_loads": {
+          "encoder": 1,
+          "decoder": 0
+        },
+        "peak_allocated_bytes": 4590809600,
+        "outputs": {
+          "trial-4-image-0.npy": {
+            "shape": [
+              4680,
+              96
+            ],
+            "dtype": "float32",
+            "sha256": "a1f72e38cdf338fbaf45fb0d4249e33565b3987fe87e4289584206b56f68665d",
+            "finite": true
+          }
+        }
+      }
+    ],
+    "mean_ms": 7925.0515053669615,
+    "stdev_ms": 10.371993884510037,
+    "recorded_boundary_label": "encoder load -> six image encodes -> encoder offload -> device synchronize",
+    "metadata_note": "Corrected inherited six-image label; actual --video-array branch is preserved in frozen harness and input_kind."
+  },
+  "parity": [
+    {
+      "file": "trial-0-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-1-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-2-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-3-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    },
+    {
+      "file": "trial-4-image-0.npy",
+      "exact": true,
+      "max_abs": 0.0,
+      "finite": true
+    }
+  ],
+  "improvement_percent": 0.6352358617238493
+}

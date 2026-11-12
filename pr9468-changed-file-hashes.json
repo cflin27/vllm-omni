@@ -1,0 +1,5 @@
+{
+  "tests/diffusion/models/minimax_h3/test_npu_image_norm.py": "1e702ded4ec05b93e934b4e496132e190e40f939f5bb0bc15a9bdb64c876f396",
+  "vllm_omni/diffusion/models/minimax_h3/ops/vae/group_norm_silu.py": "0b9828703a05fa1e0950616c04ed7a594abf49f23b9d3a9e7661a226de00354a",
+  "vllm_omni/diffusion/models/minimax_h3/vae.py": "0fadbcca3b785a9d5db1cc58e3defb2dba66c850f1b283e9b8dc5b800b26aabd"
+}

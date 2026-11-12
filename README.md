@@ -56,3 +56,35 @@ python public_http_request.py --url http://127.0.0.1:18680 --images public-image
 Use `ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7`, `OMNI_SOURCE_ROOT` and `PYTHONPATH` for the selected checkout; `VLLM_WORKER_MULTIPROC_METHOD=spawn`, `MINDIE_SD_FA_TYPE=ascend_laser_attention`, `VLLM_OMNI_VIDEO_SYNC_TIMEOUT=7200`, `VLLM_OMNI_DLO_DP_WAVE_TIMEOUT=7200`, and an independent `VLLM_OMNI_STORAGE_PATH` per server. Set a private `sitecustomize.py` directory first in `PYTHONPATH` that calls `torch.use_deterministic_algorithms(True)` only for the CLI/spawn workers; the attached `deterministic_sitecustomize.py` shows the exact condition. The original runner applied these same variables and used separate ports 18680/18681. The standalone HTTP client is a portable equivalent of its request loop, with identical request fields; it is not the original launch/cleanup harness. Recorded HTTP times are not performance measurements. Native staged H3 deployment was not tested in this HTTP check.
 
 AI assistance: TRAE assisted the code, harness, validation and analysis.
+
+## PR9468 GroupNorm/SiLU public image/video comparison
+
+Candidate: `9323191e5305d66ef57ca73b049a65c5917756bb`, same main baseline,
+public model, isolated runtime and component timing protocol as above.
+
+| Input | Base mean ms | Candidate mean ms | Reduction | Exact arrays | Fused calls/request |
+| --- | --- | --- | --- | --- | --- |
+| Six public images | 2561.902 | 2539.494 | 0.875% | 30/30 | 1800 |
+| Public video,39rawframes,8fps,832×480 | 7975.716 | 7925.052 | 0.635% | 5/5 | 900 |
+
+Two warmups and three unprofiled calls, each arm/input in an independent
+process, FP32 encoder and deterministic algorithms OFF. All pre/post physical
+card/model-initializer admission checks passed. These are small component
+savings; no HTTP or formal E2E gain,50-step quality or profile is claimed.
+The earlier interrupted baseline-only attempts are excluded from this A/B.
+
+Create the video array from the same SHA-verified public input:
+
+```bash
+ffmpeg -v error -i public-input.mp4 -vf 'fps=8,scale=832:480:flags=lanczos' -frames:v 39 -f rawvideo -pix_fmt rgb24 public-video.rgb
+python -c 'import numpy as np; a=np.fromfile("public-video.rgb",dtype=np.uint8).reshape(39,480,832,3); np.save("public-video-39.npy",a,allow_pickle=False)'
+```
+
+NPY SHA256: `8c584283c110c89cc8e91fa969da239617cc4f96ba11b239aadcd9c83cccc35a`.
+The source snapshot `validate_gn_media_component.py` is the exact measured
+harness. Repeat the component commands with that script and PR9468 checkout;
+add `--video-array "$PUBLIC_RUN_ROOT/public-video-39.npy"` for video,omit it
+for images. The inherited result boundary label originally mentioned six
+images for both branches; the video JSON records the original label and its
+correction based on the actual video branch. Actual output shapes are retained;
+raw39frames should not be interpreted as39untrimmed encoded frames.
