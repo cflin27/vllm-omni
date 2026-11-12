@@ -1,0 +1,18 @@
+{
+  "docs/design/feature/vae_parallel.md": "b3cbae4a2ad573b23d07c387563964a71c3a6b37dfeadf0e48033ba109628fd6",
+  "docs/user_guide/diffusion/parallelism/vae_parallelism.md": "f2170f9a72f90f49c9ca5f4ec370b688fb463c3d2e88a9616dd6ce91756fc231",
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_schedule.py": "a95eb67ea5bee52ff5d148a72d3d426da697a9b5a57063996941470e1502250d",
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_temporal_patches.py": "699fc653c96b06552c2e869c6bc0fb39d129ad43ad0e7ca3175d04800e8d951e",
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_tiling.py": "31ec03a390fedf7dbbbdb6725ac4cb6e02ad3594fce55ce880a6d39cbbb86c1d",
+  "tests/diffusion/models/minimax_h3/test_minimax_h3_vae_window.py": "080a5705ddd9aff10e0885e6a489bffd729e26ca1fd30f3891e3987766340fe0",
+  "vllm_omni/config/omni_config.py": "af1ff72e16f3f90a21b85cb15968aef4d3dbce500a6dec93837bac97d8d7ed24",
+  "vllm_omni/config/stage_config.py": "a3dd0107c628f0384cc254fb5034106e19de82d34a065855c512cb4166ec9a71",
+  "vllm_omni/diffusion/data.py": "394302f0eb2f2a9b93abfe02508ec1be539054dfa685efdcb0a2d304a4c4822d",
+  "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py": "c466e1b071659648ca74e784ff4a39f00a2daa775bb47c79be37606bf7019508",
+  "vllm_omni/diffusion/models/minimax_h3/vae.py": "6602a97defaf0dcf469cca4aaeb6448829a23902c9fc5fabf22848fdf8f43880",
+  "vllm_omni/diffusion/models/minimax_h3/vae_schedule.py": "8887c7b23561d4b0d5b8f014aa18f0bed46d57822c938b14ecf4ce0606c7466c",
+  "vllm_omni/diffusion/models/minimax_h3/vae_temporal.py": "0a28c5a7a2e72676d87fda8733babda8eadac820128d0aeb4dc9662fc2fe9c97",
+  "vllm_omni/diffusion/models/minimax_h3/vae_window.py": "072ac96789e1a24ee26d59686ad55547085208edb4eabab8dc6742571052d490",
+  "vllm_omni/engine/arg_utils.py": "a3c4e139e91c69ca772c1dd147c17e3f5b79784d7d82950213a9f60e2642ea42",
+  "vllm_omni/entrypoints/cli/serve.py": "8f56cffa699428abcc8cb5e0080cc49d01284e24faa657984498b3bd5eebb062"
+}

@@ -1,0 +1,3966 @@
+{
+  "results": [
+    {
+      "width": 832,
+      "base": {
+        "mean_ms": 3156.0165943422667,
+        "rank_max_samples_ms": [
+          3203.3069550525397,
+          3102.06763795577,
+          3162.67519001849
+        ],
+        "windows": []
+      },
+      "candidate": {
+        "mean_ms": 3044.688442333912,
+        "rank_max_samples_ms": [
+          3088.692964054644,
+          3066.2436350248754,
+          2979.128727922216
+        ],
+        "windows": [
+          2
+        ]
+      },
+      "improvement_percent": 3.527489437410769
+    },
+    {
+      "width": 1344,
+      "base": {
+        "mean_ms": 4919.893376296386,
+        "rank_max_samples_ms": [
+          4926.602973835543,
+          4886.5748210810125,
+          4946.502333972603
+        ],
+        "windows": []
+      },
+      "candidate": {
+        "mean_ms": 4920.0385029738145,
+        "rank_max_samples_ms": [
+          4942.38258106634,
+          4886.624520877376,
+          4931.108406977728
+        ],
+        "windows": [
+          1
+        ]
+      },
+      "improvement_percent": -0.002949793142414947
+    }
+  ],
+  "rank_reports": {
+    "base": [
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 0,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4081.5048289950937,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3175.828547915444,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3091.433526016772,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3101.9328460097313,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3123.3253811951727,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4904.454451054335,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4877.2012300323695,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4926.602973835543,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4874.849003972486,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4892.945516854525,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 1,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4070.211013080552,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3116.2322380114347,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3098.0356419458985,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3090.9242460038513,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3116.8960679788142,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4984.320665942505,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4877.312204102054,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4908.349733101204,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4876.718556974083,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4896.555409999564,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 2,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4143.143204972148,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3122.6231909822673,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3115.230201976374,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3086.0689231194556,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3115.3171891346574,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4904.1380090638995,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4885.770107852295,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4894.28052585572,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4867.330685025081,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4896.621890133247,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 3,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4084.644549060613,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3114.3360030837357,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3092.997875995934,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3102.06763795577,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3115.2470419183373,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4904.933118028566,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4876.316943904385,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4914.357816800475,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4886.5748210810125,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4946.502333972603,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 4,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4052.023319993168,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3134.592615067959,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3161.2369809299707,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3058.1840451341122,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3162.67519001849,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4902.205358026549,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4857.516949996352,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4881.878239102662,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4846.088094869629,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4885.7302609831095,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 5,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4051.7010241746902,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3195.140057010576,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3132.8822129871696,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3059.078925056383,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3103.344321018085,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4911.698958836496,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4858.420486096293,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4883.453353075311,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4848.800853127614,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4937.615171074867,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 6,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4047.6839570328593,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3115.256713004783,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3203.3069550525397,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3060.2191279176623,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3103.318197885528,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4905.862648971379,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4865.285906940699,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4888.501643901691,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4849.741299869493,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4904.7940007876605,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+        "world_size": 8,
+        "rank": 7,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": false,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4078.5423039924353,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 3125.5790300201625,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3139.497665921226,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3094.942528055981,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 3115.0379269383848,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 15645795840
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4916.580043965951,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4863.789175171405,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4919.594209874049,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4850.340251112357,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4905.818931059912,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      }
+    ],
+    "candidate": [
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 0,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3845.2938001137227,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2946.3281128555536,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3069.06010909006,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3058.2362089771777,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 0,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2979.128727922216,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4925.825311103836,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4909.707325045019,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4882.595840841532,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4850.879093166441,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 0,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4890.335242031142,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 1,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3846.616538008675,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2936.7632230278105,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3069.6344499010593,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3059.4072099775076,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 1,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2963.869648054242,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4911.730528110638,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4904.032550053671,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4883.713969960809,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4886.624520877376,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 1,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4903.272703057155,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 2,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3897.0226771198213,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2927.438681013882,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3069.8093799874187,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3042.7371859550476,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 2,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2947.11138214916,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4910.563709912822,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4885.5329770594835,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4887.547824997455,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4873.812597012147,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 2,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4931.108406977728,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 3,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3845.832851016894,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2980.8028610423207,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3069.25978185609,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3056.405995041132,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 3,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2968.9787139650434,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4962.398105068132,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4934.220260940492,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4886.91793102771,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4851.981623098254,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          },
+          {
+            "rank": 3,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4890.851970994845,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16988129792
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 4,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3909.407511120662,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2914.4314229488373,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3088.692964054644,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3066.2436350248754,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 4,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2938.0980180576444,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4938.212440116331,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4899.7776550240815,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4910.639968933538,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4871.394559042528,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 4,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4923.385319067165,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 5,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3880.7387300767004,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2912.498503923416,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3062.146324198693,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3039.121867157519,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 5,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2934.873851016164,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4912.652417086065,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4931.23437394388,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4902.256376110017,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4868.756104027852,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 5,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4919.9610750656575,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 6,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3873.755597975105,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2916.1227638833225,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3065.4579899273813,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3055.85557105951,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 6,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2941.394224995747,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4915.028196992353,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4921.022013993934,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4942.38258106634,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4880.591382039711,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 6,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4922.81900299713,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      },
+      {
+        "source_commit": "46fb1d3d39fc6503fad74178b9cf795a41137a09",
+        "world_size": 8,
+        "rank": 7,
+        "torch": "2.10.0+cpu",
+        "torch_npu": "2.10.0.post7",
+        "scheduled": true,
+        "input": "open seeded Gaussian latent, seed1101,N1,C24,T34; public VAE weights",
+        "scope": "decoder load, normalized full decode, offload, synchronization; no DiT/audio/mux",
+        "warmup": 2,
+        "repeat": 3,
+        "records": [
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 3865.5418988782912,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 2945.234621874988,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 3070.9476340562105,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 3053.0841981526464,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 7,
+            "height": 480,
+            "width": 832,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 2967.31169288978,
+            "input_sha256": "1234806d279a3f80a06db1854bee734289ab2b5c58afd31582cd6714dd711e50",
+            "selected_windows": [
+              2
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              480,
+              832
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "cdd4a7698df07c6a214f0b825f408c87c372569867934e6fe572a9655436abea",
+            "peak_allocated_bytes": 16042158080
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 0,
+            "kind": "warmup",
+            "wall_ms": 4912.737109931186,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 1,
+            "kind": "warmup",
+            "wall_ms": 4945.248577976599,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 2,
+            "kind": "measure",
+            "wall_ms": 4903.833972057328,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 3,
+            "kind": "measure",
+            "wall_ms": 4872.675857041031,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          },
+          {
+            "rank": 7,
+            "height": 768,
+            "width": 1344,
+            "trial": 4,
+            "kind": "measure",
+            "wall_ms": 4911.323596956208,
+            "input_sha256": "cac7762827c3b02d1469d896222a66902dcb688fe810fea3f40aed8ff74b45c8",
+            "selected_windows": [
+              1
+            ],
+            "shape": [
+              1,
+              3,
+              115,
+              768,
+              1344
+            ],
+            "dtype": "uint8",
+            "finite": true,
+            "sha256": "909170bf9cf59f4120f2f5dd316fe349c7d602370bb05770ffaee5d201a49caa",
+            "peak_allocated_bytes": 16977119232
+          }
+        ]
+      }
+    ]
+  },
+  "precision": {
+    "results": [
+      {
+        "width": 832,
+        "trial": 0,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "trial": 1,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "trial": 2,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "trial": 3,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "trial": 4,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "trial": 0,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "trial": 1,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "trial": 2,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "trial": 3,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "trial": 4,
+        "exact": true,
+        "max_abs": 0,
+        "all_rank_hashes_match": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      }
+    ]
+  }
+}

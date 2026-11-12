@@ -127,3 +127,42 @@ Set `ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7`,selected `OMNI_SOURCE_ROOT`,
 matching `PYTHONPATH`,and`PYTORCH_NPU_ALLOC_CONF=expandable_segments:True`.
 The recorded arm group was physical8–15. Do not reuse an existing output path.
 The result JSON preserves each rank/request,raw-input hash and branch counts.
+
+## PR9280 public decoder temporal scheduling
+
+Base is the same public main; final candidate is
+`46fb1d3d39fc6503fad74178b9cf795a41137a09`. Eight native decoder tile ranks,
+public VAE weights,open Gaussian latent generator(seed1101,N1,C24,T34),
+FP16 autocast and expandable segments ON,deterministic algorithms OFF.
+The generator is component input; it does not represent a natural video or
+full50-step model quality. Timer: decoder load,denormalized full decode,
+offload and device synchronization. DiT,audio and MP4 are excluded.
+
+| Paired run | Output geometry | Base mean ms | Candidate mean ms | Window |
+| --- | --- | --- | --- | --- |
+| Initial candidate a0dc85aac | 832×480 | 3152.587 | 2998.480 | 2 |
+| Initial candidate a0dc85aac | 1344×768 | 4944.067 | 5124.684 | 1 |
+| Final candidate46fb1d3d3 | 832×480 | 3156.017 | 3044.688 | 2 |
+| Final candidate46fb1d3d3 | 1344×768 | 4919.893 | 4920.039 | 1 |
+
+Final matched reduction:3.527% at832×480;1344×768 changes by+0.003%,with no
+measurable gain/loss established. Both runs have10/10exported tensors exact.
+The final run also checks all rank hashes within/across arms. Each arm uses a
+separate process,two warmups and three unprofiled calls; samples take each
+request's8-rank maximum before averaging. All pre/post card/initializer gates
+passed. The initial and final runs remain separate,without pooling.
+
+The initial W1 path still queried free memory and performed a group MIN. The
+revision first checks integer geometry against the fixed2GiB cap. If even that
+cap chooses W1,a lower free-memory budget cannot improve the choice,so it
+skips those device/control operations. Potentially beneficial windows still
+query the group-minimum free budget. This preserves the memory cap and avoids
+unnecessary W1 work; it does not raise the budget or claim a universal speedup.
+The initial commit is an ancestor of the final branch and remains reproducible.
+
+Use the frozen `validate_decoder_component.py` with the same source wrapper and
+NPU runtime as the tile test,replace the public-frame/length arguments with
+`--output "$NEW_OUTPUT/decoder-base" --warmup 2 --repeat 3`. Add`--scheduled`
+for PR9280. The actual torchrun prefix,8-rank launch and model path are the same.
+Exact rank/request data,input/output hashes and source hashes are attached.
+No current-head HTTP/E2E,profile,throughput or long-run stability claim.

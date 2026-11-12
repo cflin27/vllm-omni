@@ -1,0 +1,206 @@
+{
+  "results": [
+    {
+      "width": 832,
+      "base": {
+        "mean_ms": 3152.587071682016,
+        "samples_ms": [
+          3156.4181081485003,
+          3133.4991860203445,
+          3167.8439208772033
+        ],
+        "windows": []
+      },
+      "candidate": {
+        "mean_ms": 2998.479765995095,
+        "samples_ms": [
+          2970.544869080186,
+          3043.4290319681168,
+          2981.465396936983
+        ],
+        "windows": [
+          2
+        ]
+      },
+      "latency_change_percent": -4.888280709871062
+    },
+    {
+      "width": 1344,
+      "base": {
+        "mean_ms": 4944.066575185086,
+        "samples_ms": [
+          4984.9985358305275,
+          4935.814896831289,
+          4911.3862928934395
+        ],
+        "windows": []
+      },
+      "candidate": {
+        "mean_ms": 5124.6835079509765,
+        "samples_ms": [
+          5140.214042039588,
+          5086.179569829255,
+          5147.656911984086
+        ],
+        "windows": [
+          1
+        ]
+      },
+      "latency_change_percent": 3.6532059190390154
+    }
+  ],
+  "precision": {
+    "results": [
+      {
+        "width": 832,
+        "height": 480,
+        "trial": 0,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "height": 480,
+        "trial": 1,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "height": 480,
+        "trial": 2,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "height": 480,
+        "trial": 3,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 832,
+        "height": 480,
+        "trial": 4,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          480,
+          832
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "trial": 0,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "trial": 1,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "trial": 2,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "trial": 3,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      },
+      {
+        "width": 1344,
+        "height": 768,
+        "trial": 4,
+        "exact": true,
+        "finite": true,
+        "shape": [
+          1,
+          3,
+          115,
+          768,
+          1344
+        ],
+        "dtype": "uint8"
+      }
+    ]
+  }
+}
