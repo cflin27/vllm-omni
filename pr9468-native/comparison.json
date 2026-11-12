@@ -1,0 +1,92 @@
+{
+  "scope": "native1NFE end-to-end accuracy only;timings excluded from performance",
+  "baseline_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+  "candidate_commit": "9323191e5305d66ef57ca73b049a65c5917756bb",
+  "arms": {
+    "base": {
+      "source_commit": "b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270",
+      "requests": {
+        "warmup": {
+          "label": "warmup",
+          "status": 200,
+          "wall_ms": 67589.52690591104,
+          "bytes": 4617305,
+          "sha256": "ae3f135b7c3c10e367522e7e39291ab009905f3e545fa7b66f1e93f26863229d",
+          "decode_rc": 0
+        },
+        "measure-1": {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 12142.6911521703,
+          "bytes": 4605393,
+          "sha256": "b76d07d66debe9f0512396e745fe780dcca63d9382a8ea1011f48e1939539778",
+          "decode_rc": 0
+        }
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      }
+    },
+    "candidate": {
+      "source_commit": "9323191e5305d66ef57ca73b049a65c5917756bb",
+      "requests": {
+        "warmup": {
+          "label": "warmup",
+          "status": 200,
+          "wall_ms": 67862.18385398388,
+          "bytes": 4617305,
+          "sha256": "ae3f135b7c3c10e367522e7e39291ab009905f3e545fa7b66f1e93f26863229d",
+          "decode_rc": 0
+        },
+        "measure-1": {
+          "label": "measure-1",
+          "status": 200,
+          "wall_ms": 12220.901301829144,
+          "bytes": 4605393,
+          "sha256": "b76d07d66debe9f0512396e745fe780dcca63d9382a8ea1011f48e1939539778",
+          "decode_rc": 0
+        }
+      },
+      "exit": {
+        "server_exit_code": 0,
+        "parent_only_SIGTERM": true,
+        "forced_cleanup": false,
+        "remaining_pids": []
+      }
+    }
+  },
+  "process_audit": [
+    {
+      "arm": "base",
+      "tracked_or_logged_pids": 180,
+      "starttime_records": 180,
+      "active_matching_pids": [],
+      "resource_tracker_warning": true
+    },
+    {
+      "arm": "candidate",
+      "tracked_or_logged_pids": 179,
+      "starttime_records": 179,
+      "active_matching_pids": [],
+      "resource_tracker_warning": true
+    }
+  ],
+  "paired_mp4_exact": {
+    "warmup": true,
+    "measure-1": true
+  },
+  "paired_exact_count": 2,
+  "measured_exact_count": 1,
+  "self_repeat_exact": {
+    "base": false,
+    "candidate": false
+  },
+  "startup_determinism": {
+    "records": 84,
+    "all_enabled": true,
+    "note": "startup observation only"
+  }
+}

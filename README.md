@@ -82,6 +82,13 @@ card/model-initializer admission checks passed. These are small component
 savings; no HTTP or formal E2E gain,50-step quality or profile is claimed.
 The earlier interrupted baseline-only attempts are excluded from this A/B.
 
+Current-head [native end-to-end precision](pr9468-native/README.md) additionally
+compares identical three-stage deployments with the same six public images.
+Measured MP4/RGB24/float32 PCM parity is1/1 exact,2/2 including warmup; both
+native services exit0 without forced cleanup. These deterministic1-NFE requests
+provide precision evidence, with no E2E performance claim. Within-arm warmup and
+measured media differ equally in both arms, as retained in the comparison JSON.
+
 Create the video array from the same SHA-verified public input:
 
 ```bash

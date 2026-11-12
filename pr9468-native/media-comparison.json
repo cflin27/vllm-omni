@@ -1,0 +1,160 @@
+{
+  "scope": "Decoded RGB24 video and float32 PCM, one measured pair; no quality pass inferred",
+  "formula": "RMSE=sqrt(mean(diff^2)); relativeL2=norm(diff)/norm(reference); PSNR peak=255 video/1 PCM",
+  "requests": {
+    "base/warmup": {
+      "video": {
+        "decoded_sha256": "4a0e1d9dfc02946facbcf7e8d2f5a883639ca216eeffa67f824265799e0c1307",
+        "elements": 148561920,
+        "dtype": "uint8"
+      },
+      "audio": {
+        "decoded_sha256": "a77f892aaf040abda240bdcff9d2f32b98cb0c3146419c02ce5aa53cb4c91f61",
+        "elements": 331776,
+        "dtype": "float32"
+      }
+    },
+    "base/measure-1": {
+      "video": {
+        "decoded_sha256": "a5d041390684b381ec5a92a1db5f9c0a5b4dce9f8df9f2588e5ab3279e76e8f4",
+        "elements": 148561920,
+        "dtype": "uint8"
+      },
+      "audio": {
+        "decoded_sha256": "0aaa510b3984f7952694d60f0c360f30ccbbb89ba9047458e14b587b1d5b1f56",
+        "elements": 331776,
+        "dtype": "float32"
+      }
+    },
+    "candidate/warmup": {
+      "video": {
+        "decoded_sha256": "4a0e1d9dfc02946facbcf7e8d2f5a883639ca216eeffa67f824265799e0c1307",
+        "elements": 148561920,
+        "dtype": "uint8"
+      },
+      "audio": {
+        "decoded_sha256": "a77f892aaf040abda240bdcff9d2f32b98cb0c3146419c02ce5aa53cb4c91f61",
+        "elements": 331776,
+        "dtype": "float32"
+      }
+    },
+    "candidate/measure-1": {
+      "video": {
+        "decoded_sha256": "a5d041390684b381ec5a92a1db5f9c0a5b4dce9f8df9f2588e5ab3279e76e8f4",
+        "elements": 148561920,
+        "dtype": "uint8"
+      },
+      "audio": {
+        "decoded_sha256": "0aaa510b3984f7952694d60f0c360f30ccbbb89ba9047458e14b587b1d5b1f56",
+        "elements": 331776,
+        "dtype": "float32"
+      }
+    }
+  },
+  "comparisons": {
+    "base_self_repeat": {
+      "video": {
+        "shape_match": true,
+        "elements": 148561920,
+        "finite": true,
+        "exact": false,
+        "max_abs": 167.0,
+        "rmse": 3.392374143681442,
+        "relative_l2": 0.02523255238158106,
+        "psnr_db": 37.52072872062025,
+        "psnr_exact": false,
+        "changed_fraction": 0.7055050378993486
+      },
+      "audio": {
+        "shape_match": true,
+        "elements": 331776,
+        "finite": true,
+        "exact": false,
+        "max_abs": 0.0011291292903479189,
+        "rmse": 0.00014969606147463406,
+        "relative_l2": 0.6369043937886417,
+        "psnr_db": 76.49579251716494,
+        "psnr_exact": false,
+        "changed_fraction": 1.0
+      }
+    },
+    "candidate_self_repeat": {
+      "video": {
+        "shape_match": true,
+        "elements": 148561920,
+        "finite": true,
+        "exact": false,
+        "max_abs": 167.0,
+        "rmse": 3.392374143681442,
+        "relative_l2": 0.02523255238158106,
+        "psnr_db": 37.52072872062025,
+        "psnr_exact": false,
+        "changed_fraction": 0.7055050378993486
+      },
+      "audio": {
+        "shape_match": true,
+        "elements": 331776,
+        "finite": true,
+        "exact": false,
+        "max_abs": 0.0011291292903479189,
+        "rmse": 0.00014969606147463406,
+        "relative_l2": 0.6369043937886417,
+        "psnr_db": 76.49579251716494,
+        "psnr_exact": false,
+        "changed_fraction": 1.0
+      }
+    },
+    "paired_warmup": {
+      "video": {
+        "shape_match": true,
+        "elements": 148561920,
+        "finite": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "psnr_db": null,
+        "psnr_exact": true,
+        "changed_fraction": 0.0
+      },
+      "audio": {
+        "shape_match": true,
+        "elements": 331776,
+        "finite": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "psnr_db": null,
+        "psnr_exact": true,
+        "changed_fraction": 0.0
+      }
+    },
+    "paired_measure": {
+      "video": {
+        "shape_match": true,
+        "elements": 148561920,
+        "finite": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "psnr_db": null,
+        "psnr_exact": true,
+        "changed_fraction": 0.0
+      },
+      "audio": {
+        "shape_match": true,
+        "elements": 331776,
+        "finite": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "psnr_db": null,
+        "psnr_exact": true,
+        "changed_fraction": 0.0
+      }
+    }
+  }
+}
