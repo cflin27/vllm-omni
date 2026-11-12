@@ -2,7 +2,7 @@
 
 Inputs are six images extracted from the official vLLM-Omni Ref2VA input video. Model revision: `MiniMaxAI/MiniMax-H3@42ed227ee7df40d41602854ae760620d6eb651fe`. No private cases or weights are distributed.
 
-Hardware: Ascend 910B4; one physical NPU per component arm. Software: Python 3.12.13, torch 2.10.0+cpu, torch-npu 2.10.0.post7, vLLM 0.33.0+empty, vLLM-Ascend e617b709, CANN 9.1.0, driver 25.5.0; FFmpeg 4.4.2. `PYTORCH_NPU_ALLOC_CONF=expandable_segments:True`; FP32 VAE, default HF32 policy, deterministic algorithms OFF in component timing. The attached Ascend QSA import patch was applied identically to both arms. Use an isolated NPU runtime with matching dependencies; do not modify an existing service environment.
+Hardware: Ascend 910B4; one physical NPU per component arm. Software: Python 3.12.13, torch 2.10.0+cpu, torch-npu 2.10.0.post7, vLLM 0.33.0+empty, vLLM-Ascend e617b709, CANN 9.1.0, driver 25.5.0; FFmpeg 4.4.2. `PYTORCH_NPU_ALLOC_CONF=expandable_segments:True`; FP32 VAE, default HF32 policy, deterministic algorithms OFF in component timing. The attached Ascend QSA import patch was applied identically to both arms. The exact remaining package versions are in `runtime-package-versions.json`. Use an isolated NPU runtime with matching dependencies; do not modify an existing service environment.
 
 ## Inputs
 
@@ -18,7 +18,7 @@ These resized public frames are component performance inputs, not the upstream o
 
 ## Component commands
 
-Use clean source checkouts and the attached harness, with the same Python/dependencies for both arms. Baseline: `b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270`; PR9467: `a801490a57a50f0d047b2dcf29581ee0d50811f2`; PR9494: `343bec72066afed3cf9ce9d69d8202ae30e69841`. Candidate source and exact changed-file hashes are in the attached result/hash files. Fetch `refs/pull/9467/head` and `refs/pull/9494/head` from the public Omni repository and verify these commits, rather than using a moving branch silently.
+Use clean source checkouts and the attached harness, with the same Python/dependencies for both arms. Baseline: `b7bbfbdb4f2b3c070d9632043ea6cd2b1c601270`; PR9467: `a801490a57a50f0d047b2dcf29581ee0d50811f2`; PR9494: `343bec72066afed3cf9ce9d69d8202ae30e69841`. Candidate source and exact changed-file hashes are in the attached result/hash files. In each clean checkout, run `python setup.py --version` with the isolated Python before importing source; this generates its source-local `_version.py`. Fetch `refs/pull/9467/head` and `refs/pull/9494/head` from the public Omni repository and verify these commits, rather than using a moving branch silently.
 
 ```bash
 PUBLIC_RUN_ROOT="$(pwd)"
