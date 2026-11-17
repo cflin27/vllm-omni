@@ -663,3 +663,12 @@ logs. A successful HTTP response alone does not prove the cache was used.
 - [Cache-DiT guide](../../docs/user_guide/diffusion/cache_acceleration/cache_dit.md)
 - [Supported models](../../docs/models/supported_models.md)
 - [Video API](../../docs/serving/videos_api.md)
+
+### Reference-video tile input (experimental)
+
+Set `VLLM_OMNI_H3_VAE_STREAM_TILE=1` to upload only each rank's spatial tiles
+for the native FP32 CNN reference-video encoder. This opt-in path preserves
+per-clip tile assignment, gather/blend order, temporal padding and one posterior
+sample. Unsupported checkpoint configurations use ordinary preparation;
+`VLLM_OMNI_VAE_ENCODE_LEGACY_PREP=1` also selects the ordinary path. Device
+accuracy, memory and latency measurements remain pending for this draft.
